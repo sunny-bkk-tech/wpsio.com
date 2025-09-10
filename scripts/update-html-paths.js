@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const WPS_FULL_SITE_DIR = path.join(__dirname, '..', 'wps_full_site');
+const WPS_FULL_SITE_DIR = path.join(__dirname, '..', 'public', 'wps_full_site');
 const HTML_FILES = [
   '012_download_.html',
   '001_index.html',

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>mdpi/Facebook</title>
+    <defs>
+        <circle id="path-1" cx="22.5" cy="22.5" r="22.5"></circle>
+    </defs>
+    <g id="教育页面" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="教育页面移动端" transform="translate(-57.000000, -676.000000)">
+            <g id="Facebook" transform="translate(57.000000, 676.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="蒙版" fill="#E5E5E5" xlink:href="#path-1"></use>
+                <g id="-facebook" mask="url(#mask-2)" fill="#434344" fill-rule="nonzero">
+                    <g transform="translate(13.374335, 9.101666)" id="路径">
+                        <path d="M13.1132925,7.152705 L19.07388,7.152705 L19.07388,0 L13.1132925,0 C8.51171895,0 4.76847,3.74324895 4.76847,8.3448225 L4.76847,11.921175 L0,11.921175 L0,19.07388 L4.76847,19.07388 L4.76847,38.14776 L11.921175,38.14776 L11.921175,19.07388 L17.8817625,19.07388 L19.07388,11.921175 L11.921175,11.921175 L11.921175,8.3448225 C11.921175,7.69869481 12.4671648,7.152705 13.1132925,7.152705 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

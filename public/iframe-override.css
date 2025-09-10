@@ -1,0 +1,27 @@
+/* Override any width constraints in the HTML files */
+html, body {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+/* Ensure all containers take full width */
+* {
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Override any fixed widths that might be constraining the layout */
+.container, .wrapper, .main, .content {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Ensure the page takes full viewport width */
+#app, #root, .app, .root {
+  width: 100vw !important;
+  max-width: none !important;
+}

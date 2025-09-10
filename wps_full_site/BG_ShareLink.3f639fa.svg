@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="300px" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 15备份 9</title>
+    <defs>
+        <linearGradient x1="50%" y1="0.834004862%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F5F6FF" offset="0%"></stop>
+            <stop stop-color="#CACDFC" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="300" height="300"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#DBDEFE" offset="0%"></stop>
+            <stop stop-color="#6D61F1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.028293%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#DBDEFE" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#6D61F1" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Download" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-15备份-9">
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <use id="矩形备份-11" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            <path d="M0,165 C65.121212,213.38191 124.568182,243.693467 178.340909,255.934673 C232.113636,268.175879 272.666667,268.175879 300,255.934673 L300,339 L0,339 L0,165 Z" id="路径-17" fill="url(#linearGradient-4)" opacity="0.400000006" mask="url(#mask-3)"></path>
+            <path d="M-1.8189894e-12,124 C73.560606,131.331038 137.227273,145.197562 191,165.599572 C244.772727,186.001582 281.106061,197.654321 300,200.557789 L300,339 L-1.8189894e-12,339 L-1.8189894e-12,124 Z" id="路径-17" fill="url(#linearGradient-5)" opacity="0.699999988" mask="url(#mask-3)"></path>
+        </g>
+    </g>
+</svg>

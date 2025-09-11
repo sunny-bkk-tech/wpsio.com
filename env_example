@@ -1,0 +1,7 @@
+SMTP_HOST="smtp.gmail.com"
+SMTP_PORT="465"
+EMAIL_USER="ceo@mingtai.org"
+EMAIL_PASSWORD="rmjommpwwthikbfc"  # Use app-specific password if possible
+EMAIL_FROM="PM2 Alert ceo@mingtai.org"
+EMAIL_TO="sunnythai786@gmail.com"
+

@@ -4,91 +4,101 @@
  */
 
 export const mobileNavigationHandlersScript = `
+// Prevent multiple initializations
+if (!window.mobileNavInitialized) {
+  window.mobileNavInitialized = true;
+
 /**
  * Mobile navigation functionality
  */
 function setupMobileNavigation() {
-  // Mobile menu state
+  if (window.mobileNavSetup) return;
+  window.mobileNavSetup = true;
+
   let isMobileMenuOpen = false;
-  
+
   // Toggle mobile menu function
-  window.toggleMobileMenu = function() {
-    isMobileMenuOpen = !isMobileMenuOpen;
-    
+  window.toggleMobileMenu = function(forceState = null) {
+    isMobileMenuOpen = forceState !== null ? forceState : !isMobileMenuOpen;
+
     const mobileMenuContainer = document.querySelector('.mobile-menu-container');
     const mainMenu = document.querySelector('.main-menu');
-    
-    if (mobileMenuContainer && mainMenu) {
-      if (isMobileMenuOpen) {
-        // Open menu
-        mobileMenuContainer.classList.add('shadow');
-        mainMenu.classList.add('show');
-        document.body.style.overflow = 'hidden';
-      } else {
-        // Close menu
-        mobileMenuContainer.classList.remove('shadow');
-        mainMenu.classList.remove('show');
-        document.body.style.overflow = 'unset';
-      }
+    if (!mobileMenuContainer || !mainMenu) return;
+
+    if (isMobileMenuOpen) {
+      mobileMenuContainer.classList.add('shadow');
+      mainMenu.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    } else {
+      mobileMenuContainer.classList.remove('shadow');
+      mainMenu.classList.remove('show');
+      document.body.style.overflow = '';
     }
   };
-  
-  // Close mobile menu when clicking outside
+
+  // Close on overlay click
   document.addEventListener('click', function(e) {
-    if (isMobileMenuOpen) {
-      const mobileMenuContainer = document.querySelector('.mobile-menu-container');
-      const mainMenu = document.querySelector('.main-menu');
-      
-      if (mobileMenuContainer && mainMenu && 
-          !mobileMenuContainer.contains(e.target) && 
-          !mainMenu.contains(e.target)) {
-        window.toggleMobileMenu();
-      }
+    if (!isMobileMenuOpen) return;
+    const mobileMenuContainer = document.querySelector('.mobile-menu-container');
+    if (mobileMenuContainer && e.target === mobileMenuContainer) {
+      window.toggleMobileMenu(false);
     }
   });
-  
-  // Close mobile menu on escape key
+
+  // Close on escape
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && isMobileMenuOpen) {
-      window.toggleMobileMenu();
+      window.toggleMobileMenu(false);
     }
   });
-  
-  // Close mobile menu when clicking on menu items
-  const menuItems = document.querySelectorAll('.main-menu .menu-name');
-  menuItems.forEach(item => {
-    item.addEventListener('click', function() {
-      if (isMobileMenuOpen) {
-        window.toggleMobileMenu();
+
+  // Delegate menu item clicks
+  const mainMenu = document.querySelector('.main-menu');
+  if (mainMenu) {
+    mainMenu.addEventListener('click', function(e) {
+      if (e.target.closest('.menu, .menu-name')) {
+        if (isMobileMenuOpen) window.toggleMobileMenu(false);
       }
     });
-  });
-  
-  // Also handle clicks on the entire menu items
-  const menuDivs = document.querySelectorAll('.main-menu .menu');
-  menuDivs.forEach(menuDiv => {
-    menuDiv.addEventListener('click', function() {
-      if (isMobileMenuOpen) {
-        window.toggleMobileMenu();
-      }
-    });
-  });
-  
-  // Add direct event listener for the menu icon
-  const menuIcon = document.querySelector('.menu-icon');
-  if (menuIcon) {
-    menuIcon.addEventListener('click', function(e) {
-      e.preventDefault();
+  }
+
+  // Attach hamburger menu handler
+  function attachMenuIconHandler(icon) {
+    if (!icon || icon._mobileHandlerAttached) return;
+    icon._mobileHandlerAttached = true;
+
+    const handler = function(e) {
+      if (e.cancelable) e.preventDefault();
       e.stopPropagation();
       window.toggleMobileMenu();
+    };
+
+    icon.addEventListener('click', handler);
+    icon.addEventListener('touchstart', handler);
+  }
+
+  const menuIcon = document.querySelector('.menu-icon');
+  if (menuIcon) {
+    attachMenuIconHandler(menuIcon);
+  } else {
+    // Watch DOM for menu icon later
+    const observer = new MutationObserver(() => {
+      const icon = document.querySelector('.menu-icon');
+      if (icon) {
+        attachMenuIconHandler(icon);
+        observer.disconnect();
+      }
     });
+    observer.observe(document.body, { childList: true, subtree: true });
   }
 }
 
-// Initialize mobile navigation when DOM is ready
+// Initialize mobile navigation
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', setupMobileNavigation);
 } else {
   setupMobileNavigation();
 }
+
+} // end initialization guard
 `;

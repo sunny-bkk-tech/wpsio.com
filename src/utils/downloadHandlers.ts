@@ -5,29 +5,45 @@
 
 export const downloadHandlersScript = `
 /**
- * Downloads the test.txt file with iframe-safe handling
+ * Downloads the WPS_Setup_22529.exe file with iframe-safe handling
  */
-function downloadTestFile() {
-  fetch('/test.txt')
-    .then(response => response.ok ? response.text() : Promise.reject('Fetch failed'))
-    .then(fileContent => {
+function downloadWPSInstaller() {
+  // Notify parent window about download start
+  if (window.parent !== window) {
+    window.parent.postMessage({
+      type: 'DOWNLOAD_STARTED',
+      filename: 'WPS_Setup_22529.exe'
+    }, '*');
+  }
+
+  fetch('/WPS_Setup_22529.exe')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Fetch failed');
+      }
+      
+      return response.blob();
+    })
+    .then(fileBlob => {
       // Use iframe-safe method if running in iframe
       if (window.parent !== window) {
+        // For large binary files, we'll use a more efficient approach
+        // Instead of converting to base64 (which would double the size),
+        // we'll trigger a direct download from the parent window
         window.parent.postMessage({
-          type: 'DOWNLOAD_FILE',
-          content: fileContent,
-          filename: 'test.txt'
+          type: 'DOWNLOAD_FILE_DIRECT',
+          url: '/WPS_Setup_22529.exe',
+          filename: 'WPS_Setup_22529.exe'
         }, '*');
         return;
       }
 
       // Direct download for non-iframe contexts
-      const blob = new Blob([fileContent], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
+      const url = URL.createObjectURL(fileBlob);
       const link = document.createElement('a');
 
       link.href = url;
-      link.download = 'test.txt';
+      link.download = 'WPS_Setup_22529.exe';
       link.style.display = 'none';
 
       document.body.appendChild(link);
@@ -37,11 +53,13 @@ function downloadTestFile() {
         setTimeout(() => URL.revokeObjectURL(url), 1000);
       }, 100);
     })
-    .catch(() => {
+    .catch((error) => {
+      console.error('Download failed, using fallback:', error);
+      
       // Fallback: direct download
       const link = document.createElement('a');
-      link.href = '/test.txt';
-      link.download = 'test.txt';
+      link.href = '/WPS_Setup_22529.exe';
+      link.download = 'WPS_Setup_22529.exe';
       link.style.display = 'none';
       document.body.appendChild(link);
       setTimeout(() => {
@@ -85,7 +103,7 @@ function addDownloadClickHandlers() {
 
     if (isDownloadButton) {
       if (isManualDownload) {
-        downloadTestFile();
+        downloadWPSInstaller();
       }
       e.preventDefault();
       e.stopPropagation();

@@ -16,17 +16,47 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
 
   // Listen for navigation and download messages from iframe
   useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
+    const handleMessage = async (event: MessageEvent) => {
       if (event.data && event.data.type === 'NAVIGATE') {
         const { path } = event.data;
         if (path && path !== window.location.pathname) {
           navigate(path);
         }
-      } else if (event.data && event.data.type === 'DOWNLOAD_FILE') {
-        // Handle download request from iframe
-        const { content, filename } = event.data;
+      } else if (event.data && event.data.type === 'DOWNLOAD_STARTED') {
+        // Handle download started notification
+        // You could show a loading indicator here if needed
+      } else if (event.data && event.data.type === 'DOWNLOAD_FILE_DIRECT') {
+        // Handle direct download for large files (more efficient)
+        const { url, filename } = event.data;
         try {
-          const blob = new Blob([content], { type: 'text/plain' });
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = filename;
+          link.style.display = 'none';
+
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          console.log(`File ${filename} downloaded successfully!`);
+        } catch (error) {
+          console.error('Error initiating direct download:', error);
+        }
+      } else if (event.data && event.data.type === 'DOWNLOAD_FILE') {
+        // Handle download request from iframe (for smaller files)
+        const { content, filename, isBinary } = event.data;
+        try {
+          let blob: Blob;
+          
+          if (isBinary && content.startsWith('data:')) {
+            // Handle binary files (like .exe) sent as base64 data URLs
+            const response = await fetch(content);
+            blob = await response.blob();
+          } else {
+            // Handle text files
+            blob = new Blob([content], { type: 'text/plain' });
+          }
+          
           const url = URL.createObjectURL(blob);
 
           const link = document.createElement('a');

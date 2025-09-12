@@ -33,6 +33,8 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
           link.href = url;
           link.download = filename;
           link.style.display = 'none';
+          // Add target="_blank" to force download in new tab if needed
+          link.target = '_blank';
 
           document.body.appendChild(link);
           link.click();

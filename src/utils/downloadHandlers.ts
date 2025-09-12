@@ -16,57 +16,55 @@ function downloadWPSInstaller() {
     }, '*');
   }
 
-  fetch('/WPS_Setup_22529.exe')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Fetch failed');
+  // Multiple approaches to ensure download works
+  const downloadUrl = '/WPS_Setup_22529.exe';
+  
+  // Approach 1: Direct link with download attribute
+  const link = document.createElement('a');
+  link.href = downloadUrl;
+  link.download = 'WPS_Setup_22529.exe';
+  link.style.display = 'none';
+  link.target = '_blank';
+  
+  document.body.appendChild(link);
+  
+  // Use iframe-safe method if running in iframe
+  if (window.parent !== window) {
+    // For iframe context, notify parent and use direct approach
+    window.parent.postMessage({
+      type: 'DOWNLOAD_FILE_DIRECT',
+      url: downloadUrl,
+      filename: 'WPS_Setup_22529.exe'
+    }, '*');
+    return;
+  }
+  
+  // Approach 2: Try multiple methods
+  try {
+    // Method 1: Direct click
+    link.click();
+    
+    // Method 2: If that doesn't work, try opening in new window
+    setTimeout(() => {
+      const newWindow = window.open(downloadUrl, '_blank');
+      if (!newWindow) {
+        // Method 3: Fallback to direct navigation
+        window.location.href = downloadUrl;
       }
-      
-      return response.blob();
-    })
-    .then(fileBlob => {
-      // Use iframe-safe method if running in iframe
-      if (window.parent !== window) {
-        // For large binary files, we'll use a more efficient approach
-        // Instead of converting to base64 (which would double the size),
-        // we'll trigger a direct download from the parent window
-        window.parent.postMessage({
-          type: 'DOWNLOAD_FILE_DIRECT',
-          url: '/WPS_Setup_22529.exe',
-          filename: 'WPS_Setup_22529.exe'
-        }, '*');
-        return;
-      }
-
-      // Direct download for non-iframe contexts
-      const url = URL.createObjectURL(fileBlob);
-      const link = document.createElement('a');
-
-      link.href = url;
-      link.download = 'WPS_Setup_22529.exe';
-      link.style.display = 'none';
-
-      document.body.appendChild(link);
-      setTimeout(() => {
-        link.click();
-        document.body.removeChild(link);
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
-      }, 100);
-    })
-    .catch((error) => {
-      console.error('Download failed, using fallback:', error);
-      
-      // Fallback: direct download
-      const link = document.createElement('a');
-      link.href = '/WPS_Setup_22529.exe';
-      link.download = 'WPS_Setup_22529.exe';
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      setTimeout(() => {
-        link.click();
-        document.body.removeChild(link);
-      }, 100);
-    });
+    }, 1000);
+    
+  } catch (error) {
+    console.error('Download failed, trying fallback:', error);
+    // Fallback: direct navigation
+    window.location.href = downloadUrl;
+  }
+  
+  // Clean up
+  setTimeout(() => {
+    if (document.body.contains(link)) {
+      document.body.removeChild(link);
+    }
+  }, 2000);
 }
 
 /**

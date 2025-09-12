@@ -7,6 +7,8 @@ export default defineConfig({
   base: './', // Use relative paths for assets in production
   server: {
     port: 8080,
+    host: true, // Allow external connections
+    allowedHosts: ['wpsio.com', 'localhost', '127.0.0.1'],
     fs: {
       allow: ['..']
     },

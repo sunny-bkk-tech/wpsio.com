@@ -320,10 +320,9 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
           processedHtml = processedHtml.replace(pattern as RegExp, replacement as string);
         });
 
-        // Add base tag to ensure relative URLs work
-        if (!processedHtml.includes('<base href=')) {
-          processedHtml = processedHtml.replace(/<head>/i, '<head><base href="/wps_full_site/">');
-        }
+        // Do not inject a <base> tag. Injecting a base to /wps_full_site/ caused
+        // app assets like /assets/index-*.css to resolve under /wps_full_site/assets
+        // leading to 404s and MIME type text/html. We rely on explicit URL rewrites above instead.
 
         // Fix mobile navigation - add missing hamburger menu button and main menu
         // Only add left section if it doesn't already exist

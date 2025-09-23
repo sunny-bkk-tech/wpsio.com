@@ -1,0 +1,9 @@
+# robots.txt for wpsio.com
+User-agent: *
+Allow: /
+
+# Disallow specific build artifacts or private paths if any (none currently)
+
+Sitemap: https://www.wpsio.com/sitemap.xml
+
+

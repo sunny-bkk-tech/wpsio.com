@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createScriptTag } from '../utils/scriptInjector';
 
@@ -87,8 +87,11 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
   }, [navigate]);
 
   // Helper function to consolidate image path processing
-  const processImagePaths = (html: string): string => {
+  const processImagePaths = useCallback((html: string): string => {
     let processed = html;
+
+    // Compute base directory of the provided htmlPath, e.g. wps_full_site/
+    const baseDir = '/' + (htmlPath.split('/').slice(0, -1).join('/')) + '/';
 
     // Define Right_Pad images that should keep @ symbols
     const imagesWithAtSymbol = [
@@ -125,6 +128,11 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
       return match.startsWith('src="/wps_full_site/') ? match : `src="/wps_full_site/${filename}"`;
     });
 
+    // Prefix relative image src (no leading / or http) with baseDir
+    processed = processed.replace(/src="(?!https?:|\/)([^"\s]+\.(png|jpg|jpeg|svg|gif|webp))"/gi, (_: string, relPath: string) => {
+      return `src="${baseDir}${relPath}"`;
+    });
+
     // Handle @ symbols in image filenames - convert to underscores except for specific Right_Pad images
     processed = processed.replace(/src="\/wps_full_site\/([^"]*@[^"]*)"/g, (_: string, filename: string) => {
       if (imagesWithAtSymbol.includes(filename)) {
@@ -149,8 +157,16 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
       return `srcset="${newSrcset}"`;
     });
 
+    // Ensure srcset relative URLs are prefixed with baseDir
+    processed = processed.replace(/srcset="([^"]+)"/gi, (_: string, srcset: string) => {
+      const fixed = srcset.replace(/(^|,\s*)(?!https?:|\/)([^,\s]+\.(png|jpg|jpeg|svg|gif|webp))(\s+\d+x)?/gi, (_m, p1, p2, p3) => {
+        return `${p1}${baseDir}${p2}${p3 || ''}`;
+      });
+      return `srcset="${fixed}"`;
+    });
+
     return processed;
-  };
+  }, [htmlPath]);
 
   // Helper function to disable event handlers
   const disableEventHandlers = (html: string): string => {
@@ -263,6 +279,10 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
             if (cleanUrl.includes('website-prod.cache.wpscdn.com')) {
               const localUrl = cleanUrl.replace('https://website-prod.cache.wpscdn.com/img/', '/wps_full_site/');
               return `background-image:url(${localUrl})`;
+            }
+            // Prefix relative CSS url(...) with baseDir
+            if (!/^https?:\/\//i.test(cleanUrl) && !cleanUrl.startsWith('/')) {
+              return `background-image:url(${`/${htmlPath.split('/').slice(0, -1).join('/')}/${cleanUrl}`})`;
             }
             return match;
           }
@@ -421,7 +441,7 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
     };
 
     fetchContent();
-  }, [htmlPath]);
+  }, [htmlPath, processImagePaths]);
 
   // Force iframe update when htmlContent changes
   useEffect(() => {

@@ -1,0 +1,10 @@
+{
+  "public": "dist",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/assets/**", "destination": "/assets/**" },
+    { "source": "/wps_full_site/**", "destination": "/wps_full_site/**" },
+    { "source": "**", "destination": "/index.html" }
+  ]
+}

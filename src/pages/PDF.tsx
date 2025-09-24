@@ -5,7 +5,9 @@ import { useSEO } from '../utils/useSEO';
 const PDF: React.FC = () => {
   useSEO({
     title: 'WPS PDF - 專業PDF編輯軟體',
-    description: '以 WPS PDF 編輯、轉換與標註 PDF 文件，提升文檔處理效率。'
+    description: '以 WPS PDF 編輯、轉換與標註 PDF 文件，提升文檔處理效率。',
+    robots: 'index,follow',
+    image: 'https://www.wpsio.com/vite.svg'
   });
 
   return (

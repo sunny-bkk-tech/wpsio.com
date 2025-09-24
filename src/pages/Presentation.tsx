@@ -5,7 +5,9 @@ import { useSEO } from '../utils/useSEO';
 const Presentation: React.FC = () => {
   useSEO({
     title: 'WPS Presentation - 專業簡報製作軟體',
-    description: '使用 WPS Presentation 設計精美簡報，提供豐富模板與動畫，輕鬆打造專業展示。'
+    description: '使用 WPS Presentation 設計精美簡報，提供豐富模板與動畫，輕鬆打造專業展示。',
+    robots: 'index,follow',
+    image: 'https://www.wpsio.com/vite.svg'
   });
 
   return (

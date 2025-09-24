@@ -5,7 +5,9 @@ import { useSEO } from '../utils/useSEO';
 const Linux: React.FC = () => {
   useSEO({
     title: 'WPS Office for Linux - Linux版辦公軟體',
-    description: '下載 WPS Office Linux 版本，支援主流發行版，提供穩定且高效的辦公體驗。'
+    description: '下載 WPS Office Linux 版本，支援主流發行版，提供穩定且高效的辦公體驗。',
+    robots: 'index,follow',
+    image: 'https://www.wpsio.com/vite.svg'
   });
 
   return (

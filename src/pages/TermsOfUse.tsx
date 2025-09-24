@@ -5,7 +5,9 @@ import { useSEO } from '../utils/useSEO';
 const TermsOfUse: React.FC = () => {
   useSEO({
     title: '使用條款 - WPS Office',
-    description: '閱讀 WPS Office 的服務條款與使用規範，了解您的權利與義務。'
+    description: '閱讀 WPS Office 的服務條款與使用規範，了解您的權利與義務。',
+    robots: 'index,follow',
+    image: 'https://www.wpsio.com/vite.svg'
   });
 
   return (

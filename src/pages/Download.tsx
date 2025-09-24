@@ -5,7 +5,21 @@ import { useSEO } from '../utils/useSEO';
 const Download: React.FC = () => {
   useSEO({
     title: '免费下载适用于 Windows、Mac 和 Linux 的 WPS Office',
-    description: '免费下载 WPS Office 中文版，支持 Windows、Mac 与移动端。轻松编辑 Word、Excel、PPT，高效便捷的一体化办公套件'
+    description: '免费下载 WPS Office 中文版，支持 Windows、Mac 与移动端。轻松编辑 Word、Excel、PPT，高效便捷的一体化办公套件',
+    robots: 'index,follow',
+    image: 'https://www.wpsio.com/vite.svg',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'WPS Office',
+      operatingSystem: 'Windows, macOS, Linux, Android, iOS',
+      applicationCategory: 'BusinessApplication',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD'
+      }
+    }
   });
 
   return (

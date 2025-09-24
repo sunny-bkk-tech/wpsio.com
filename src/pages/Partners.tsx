@@ -5,7 +5,9 @@ import { useSEO } from '../utils/useSEO';
 const Partners: React.FC = () => {
   useSEO({
     title: '合作夥伴與客戶故事 - WPS Office',
-    description: '了解 WPS Office 的合作夥伴與成功案例，探索我們如何助力企業與組織提升效率。'
+    description: '了解 WPS Office 的合作夥伴與成功案例，探索我們如何助力企業與組織提升效率。',
+    robots: 'index,follow',
+    image: 'https://www.wpsio.com/vite.svg'
   });
 
   return (

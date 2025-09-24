@@ -5,7 +5,9 @@ import { useSEO } from '../utils/useSEO';
 const PrivacyPolicy: React.FC = () => {
   useSEO({
     title: '隱私政策 - WPS Office',
-    description: '瞭解 WPS Office 如何保護您的隱私與數據安全，包括收集、使用與存儲方式。'
+    description: '瞭解 WPS Office 如何保護您的隱私與數據安全，包括收集、使用與存儲方式。',
+    robots: 'index,follow',
+    image: 'https://www.wpsio.com/vite.svg'
   });
 
   return (

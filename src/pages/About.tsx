@@ -5,7 +5,15 @@ import { useSEO } from '../utils/useSEO';
 const About: React.FC = () => {
   useSEO({
     title: '關於 WPS Office - 我們的使命、歷史和社會責任',
-    description: '了解 WPS Office 的品牌故事、使命願景與社會責任，探索我們如何持續為全球用戶提供高效便捷的辦公體驗。'
+    description: '了解 WPS Office 的品牌故事、使命願景與社會責任，探索我們如何持續為全球用戶提供高效便捷的辦公體驗。',
+    robots: 'index,follow',
+    image: 'https://www.wpsio.com/vite.svg',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'WPS-IO Office',
+      url: 'https://www.wpsio.com/'
+    }
   });
 
   return (

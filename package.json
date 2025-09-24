@@ -9,7 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "download-wps-assets": "node scripts/download-wps-assets.js",
-    "update-html-paths": "node scripts/update-html-paths.js"
+    "update-html-paths": "node scripts/update-html-paths.js",
+    "serp:ranks": "node scripts/serp-rank-check.js",
+    "serp:manual": "node scripts/generate-manual-serp-links.js",
+    "blog:add": "node scripts/add-blog-post.js"
   },
   "dependencies": {
     "dotenv": "^17.2.2",

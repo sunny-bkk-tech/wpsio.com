@@ -18,7 +18,10 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import TechSpecs from './pages/TechSpecs';
 import Partners from './pages/Partners';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import './App.css';
+import './styles/blog.css';
 
 function App() {
   return (
@@ -49,6 +52,10 @@ function App() {
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/tech-specs" element={<TechSpecs />} />
         <Route path="/partners" element={<Partners />} />
+
+        {/* Blog */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </Router>
   );

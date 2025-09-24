@@ -13,6 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="main-content">
         {children}
       </main>
+      <br></br>
       <Footer />
     </div>
   );

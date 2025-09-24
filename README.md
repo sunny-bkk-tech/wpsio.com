@@ -102,3 +102,23 @@ This application was converted from a static HTML website that was mirrored usin
 - Integrate with backend APIs
 - Add internationalization support
 - Implement user authentication
+
+## SERP Rank Checks (Google/Bing)
+
+Use SerpAPI to fetch neutralized search results and write a CSV of positions.
+
+1. Create a `.env` file in the project root with:
+
+```
+SERPAPI_KEY=your_serpapi_key
+```
+
+2. Optional: Edit `scripts/serp_keywords.json` to customize the keyword list.
+
+3. Run the script:
+
+```
+yarn serp:ranks
+```
+
+This writes `dist/serp_ranks.csv` with columns: `keyword,engine,rank,page,url`.

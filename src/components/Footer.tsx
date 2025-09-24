@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             <a href="/contact">聯絡我們</a>
           </div>
           <div className="footer-copyright">
-            <p>&copy; 2024 WPS Office. 版權所有。</p>
+            <p>&copy; 2025 WPS Office. 版權所有。</p>
           </div>
         </div>
       </div>

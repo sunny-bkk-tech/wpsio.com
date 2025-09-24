@@ -165,6 +165,19 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
       return `srcset="${fixed}"`;
     });
 
+    // Rewrite <link rel="stylesheet" href="..."> to absolute paths so styles load inside srcDoc
+    // Prefix relative href (no leading / or http) with baseDir
+    processed = processed.replace(/<link([^>]*?)href="(?!https?:|\/)([^"\s>]+)"/gi, (_: string, attrs: string, href: string) => {
+      return `<link${attrs}href="${baseDir}${href}"`;
+    });
+    // Fix hrefs that start with / but are not under /wps_full_site/ or /assets
+    processed = processed.replace(/<link([^>]*?)href="\/([^"\s>]+)"/gi, (_: string, attrs: string, path: string) => {
+      if (path.startsWith('wps_full_site/') || path.startsWith('assets/') || path.startsWith('favicon') || path.startsWith('robots.txt')) {
+        return `<link${attrs}href="/${path}"`;
+      }
+      return `<link${attrs}href="/wps_full_site/${path}"`;
+    });
+
     return processed;
   }, [htmlPath]);
 
@@ -248,9 +261,13 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
         // Disable event handlers using helper function
         processedHtml = disableEventHandlers(processedHtml);
 
-        // Remove iframe busting meta tags
+        // Remove iframe busting and CSP meta tags
         processedHtml = processedHtml.replace(/<meta[^>]*http-equiv=["']X-Frame-Options["'][^>]*>/gi, '');
         processedHtml = processedHtml.replace(/<meta[^>]*content=["']frame-ancestors\s*none["'][^>]*>/gi, '');
+        processedHtml = processedHtml.replace(/<meta[^>]*http-equiv=["']Content-Security-Policy["'][^>]*>/gi, '');
+        processedHtml = processedHtml.replace(/<meta[^>]*http-equiv=["']content-security-policy["'][^>]*>/gi, '');
+        processedHtml = processedHtml.replace(/<meta[^>]*name=["']Content-Security-Policy["'][^>]*>/gi, '');
+        processedHtml = processedHtml.replace(/<meta[^>]*name=["']content-security-policy["'][^>]*>/gi, '');
 
         // Replace external URLs with local paths using array-based approach
         const urlReplacements = [

@@ -11,6 +11,7 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
   const [htmlContent, setHtmlContent] = useState<string>('');
+  const [useInlineRender, setUseInlineRender] = useState<boolean>(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const navigate = useNavigate();
 
@@ -305,6 +306,13 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
           }
         );
         
+        // Inject a <base> tag so relative URLs in the iframe resolve correctly
+        const baseHref = '/' + (htmlPath.split('/').slice(0, -1).join('/')) + '/';
+        if (!/\n\s*<base\b/i.test(processedHtml)) {
+          const baseTag = `\n<base href="${baseHref}">\n`;
+          processedHtml = processedHtml.replace(/<head[^>]*>/i, (m) => `${m}${baseTag}`);
+        }
+
         
         // Block downloads using helper function
         processedHtml = blockDownloads(processedHtml);
@@ -469,7 +477,18 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
   }, [htmlContent]);
 
   const handleIframeLoad = () => {
-    // Iframe loaded successfully
+    try {
+      if (iframeRef.current && iframeRef.current.contentDocument) {
+        const doc = iframeRef.current.contentDocument;
+        const bodyHtml = doc.body ? doc.body.innerHTML.trim() : '';
+        // If iframe appears effectively empty, fallback to inline render
+        if (!bodyHtml || bodyHtml.length < 50) {
+          setUseInlineRender(true);
+        }
+      }
+    } catch {
+      // Ignore access errors
+    }
     setLoading(false);
   };
 
@@ -513,7 +532,7 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
       position: 'relative',
       display: 'block'
     }}>
-      {htmlContent && (
+      {htmlContent && !useInlineRender && (
         <iframe
           ref={iframeRef}
           key={htmlPath} // Force re-render when htmlPath changes
@@ -537,6 +556,22 @@ const HTMLViewer: React.FC<HTMLViewerProps> = ({ htmlPath, title }) => {
             console.error('Iframe failed to load:', e);
             setError('Failed to load page');
           }}
+        />
+      )}
+      {htmlContent && useInlineRender && (
+        <div
+          style={{
+            width: '100%',
+            minHeight: '100vh',
+            border: 'none',
+            overflow: 'auto',
+            margin: 0,
+            padding: 0,
+            display: 'block',
+            position: 'relative'
+          }}
+          // Inline fallback render
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
       )}
       {loading && (

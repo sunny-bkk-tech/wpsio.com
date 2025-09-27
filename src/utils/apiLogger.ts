@@ -26,8 +26,8 @@ export const logVisitToServer = async () => {
     const today = getCurrentDateString();
     const lastLogDate = localStorage.getItem(LAST_LOG_DATE_KEY);
 
-    // Only log if the user hasn't been logged today
-    if (lastLogDate === today) {
+    // Only log once per day, BUT always log in development for easier testing.
+    if (lastLogDate === today && import.meta.env.MODE !== 'development') {
       return; // A visit has already been logged today.
     }
 

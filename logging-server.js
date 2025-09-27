@@ -34,6 +34,7 @@ const transport = pino.transport({
 const logger = pino(transport);
 
 // Middleware setup
+app.set('trust proxy', 1); // Trust the first proxy in front of the app (e.g., Nginx)
 app.use(cors());
 app.use(express.json());
 
@@ -57,7 +58,9 @@ app.get('/api/logs', (req, res) => {
 
 // API logging endpoint
 app.post('/api/log', (req, res) => {
-  const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress;
+  // Use req.ip which is more reliable behind a proxy when 'trust proxy' is set
+  const ip = req.ip;
+  
   const logData = { ip, ...req.body };
   logger.info(logData, `Page View: ${logData.path}`);
   res.status(200).send({ status: 'ok' });

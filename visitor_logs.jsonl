@@ -1,3 +1,8 @@
 {"level":30,"time":1758962836426,"pid":58293,"hostname":"kannallkij.local","msg":"Server started on http://localhost:8080. Serving files from /Users/sunny/wps_project/wps_clone_chinese/wpsio.com/dist"}
 {"level":30,"time":1758963205100,"pid":59994,"hostname":"kannallkij.local","msg":"Server started on http://localhost:8080. Serving files from /Users/sunny/wps_project/wps_clone_chinese/wpsio.com/dist"}
 {"level":30,"time":1758963210802,"pid":60280,"hostname":"kannallkij.local","msg":"Server started on http://localhost:8080. Serving files from /Users/sunny/wps_project/wps_clone_chinese/wpsio.com/dist"}
+{"level":30,"time":1758963600749,"pid":63036,"hostname":"kannallkij.local","msg":"Server started on http://localhost:8080. Serving files from /Users/sunny/wps_project/wps_clone_chinese/wpsio.com/dist"}
+{"level":30,"time":1758964393295,"pid":66736,"hostname":"kannallkij.local","msg":"Server started on http://localhost:8080. Serving files from /Users/sunny/wps_project/wps_clone_chinese/wpsio.com/dist"}
+{"level":30,"time":1758964460373,"pid":67341,"hostname":"kannallkij.local","msg":"Server started on http://localhost:8080. Serving files from /Users/sunny/wps_project/wps_clone_chinese/wpsio.com/dist"}
+{"level":30,"time":1758964937851,"pid":69326,"hostname":"kannallkij.local","msg":"Server started on http://localhost:8080. Serving files from /Users/sunny/wps_project/wps_clone_chinese/wpsio.com/dist"}
+{"level":30,"time":1758964946648,"pid":69326,"hostname":"kannallkij.local","ip":"::ffff:192.168.5.197","event":"page_view","path":"/logs","referrer":"","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36","fingerprint":"ZW4tVVN8TWFjSW50","msg":"Page View: /logs"}

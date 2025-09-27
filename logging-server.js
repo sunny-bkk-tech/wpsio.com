@@ -4,6 +4,7 @@ import cors from 'cors';
 import pino from 'pino';
 import path from 'path';
 import fs from 'fs';
+import geoip from 'geoip-lite';
 import { fileURLToPath } from 'url';
 
 // ES module equivalents for __dirname
@@ -59,20 +60,42 @@ app.get('/api/logs', (req, res) => {
 // API logging endpoint
 app.post('/api/log', (req, res) => {
   // Use req.ip which is more reliable behind a proxy when 'trust proxy' is set
-  const ip = req.ip;
+  let ip = req.ip; 
   
-  const logData = { ip, ...req.body };
-  logger.info(logData, `Page View: ${logData.path}`);
+  // Clean IPv6-mapped IPv4 addresses (remove ::ffff: prefix)
+  if (ip && ip.startsWith('::ffff:')) {
+    ip = ip.substring(7);
+  }
+  
+  // Look up country from IP address
+  const geo = geoip.lookup(ip);
+  
+  const country = geo ? geo.country : 'Unknown';
+  
+  const logData = { 
+    ip, 
+    country,
+    ...req.body 
+  };
+  logger.info(logData, `Page View: ${logData.path} from ${country}`);
   res.status(200).send({ status: 'ok' });
 });
 
 // --- Static File Serving ---
 // Serve the built React application
 const buildPath = path.join(__dirname, 'dist');
-app.use(express.static(buildPath));
 
-// For any other request, serve the index.html file so client-side routing works
+// Serve static files from dist
+app.use(express.static(buildPath, {
+  index: false // Don't serve index.html automatically
+}));
+
+// For any other request (that's not an API route), serve the index.html file so client-side routing works
 app.get('*', (req, res) => {
+  // Skip API routes
+  if (req.path.startsWith('/api/')) {
+    return res.status(404).json({ error: 'API endpoint not found' });
+  }
   res.sendFile(path.join(buildPath, 'index.html'));
 });
 

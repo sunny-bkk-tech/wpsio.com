@@ -25,6 +25,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "4",
+    "geoip-lite": "^1.4.10",
     "http-proxy-middleware": "^3.0.5",
     "logger": "^0.0.1",
     "nodemailer": "^7.0.6",

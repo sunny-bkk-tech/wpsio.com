@@ -6,6 +6,7 @@ interface LogEntry {
   level: number;
   time: number;
   ip: string;
+  country: string;
   event: string;
   path: string;
   referrer: string;
@@ -58,6 +59,7 @@ const LogViewer: React.FC = () => {
                 <th>Timestamp</th>
                 <th>Path</th>
                 <th>IP Address</th>
+                <th>Country</th>
                 <th>Referrer</th>
                 <th>User Agent</th>
               </tr>
@@ -68,6 +70,7 @@ const LogViewer: React.FC = () => {
                   <td className="time-cell">{new Date(log.time).toLocaleString()}</td>
                   <td className="path-cell" title={log.path}>{log.path}</td>
                   <td className="ip-cell">{log.ip}</td>
+                  <td className="country-cell">{log.country || 'Unknown'}</td>
                   <td className="referrer-cell" title={log.referrer}>{log.referrer || 'Direct'}</td>
                   <td className="ua-cell" title={log.userAgent}>{log.userAgent}</td>
                 </tr>

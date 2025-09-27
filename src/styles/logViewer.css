@@ -89,6 +89,13 @@
   font-family: monospace;
 }
 
+.country-cell {
+  font-weight: 500;
+  color: #dc3545;
+  text-align: center;
+  min-width: 80px;
+}
+
 .loading-container, .error-container {
   padding-top: 6rem;
   text-align: center;

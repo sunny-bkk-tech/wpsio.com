@@ -1,0 +1,63 @@
+{
+  "backlinks": [
+    {
+      "id": "1758795366302",
+      "url": "https://example.com/wps-review",
+      "domain": "example.com",
+      "anchor": "",
+      "type": "guest",
+      "quality": "high",
+      "notes": "",
+      "dateAdded": "2025-09-25",
+      "status": "active"
+    },
+    {
+      "id": "1758798632212",
+      "url": "https://www.producthunt.com/products/wps-office",
+      "domain": "producthunt.com",
+      "anchor": "",
+      "type": "platform",
+      "quality": "high",
+      "notes": "",
+      "dateAdded": "2025-09-25",
+      "status": "active"
+    },
+    {
+      "id": "1758798923118",
+      "url": "https://sourceforge.net/software/product/WPS-Office/",
+      "domain": "sourceforge.net",
+      "anchor": "",
+      "type": "directory",
+      "quality": "medium",
+      "notes": "",
+      "dateAdded": "2025-09-25",
+      "status": "active"
+    },
+    {
+      "id": "1758799686291",
+      "url": "https://reddit.com/r/ResumeHelp/comments/abc123",
+      "domain": "reddit.com",
+      "anchor": "",
+      "type": "social",
+      "quality": "medium",
+      "notes": "",
+      "dateAdded": "2025-09-25",
+      "status": "active"
+    }
+  ],
+  "dailyStats": {
+    "2025-09-25": {
+      "total": 4,
+      "byType": {
+        "guest": 1,
+        "platform": 1,
+        "directory": 1,
+        "social": 1
+      },
+      "byQuality": {
+        "high": 2,
+        "medium": 2
+      }
+    }
+  }
+}

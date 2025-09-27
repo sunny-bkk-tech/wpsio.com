@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Download from './pages/Download';
@@ -20,45 +21,75 @@ import TechSpecs from './pages/TechSpecs';
 import Partners from './pages/Partners';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import SerpReport from './pages/SerpReport';
+import BacklinkReport from './pages/BacklinkReport';
+import Templates from './pages/Templates';
+import TemplateDetail from './pages/TemplateDetail';
+import LogViewer from './pages/LogViewer';
+import { logVisitToServer } from './utils/apiLogger';
 import './App.css';
 import './styles/blog.css';
+import './styles/templates.css';
+import './styles/logViewer.css';
+
+const AppContent = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // This will send a log to our server every time the route changes.
+    logVisitToServer();
+  }, [location]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/download" element={<Download />} />
+      <Route path="/support" element={<Support />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/education" element={<Education />} />
+
+      {/* Office Apps */}
+      <Route path="/writer" element={<Writer />} />
+      <Route path="/spreadsheet" element={<Spreadsheet />} />
+      <Route path="/presentation" element={<Presentation />} />
+      <Route path="/pdf" element={<PDF />} />
+
+      {/* Platform Pages */}
+      <Route path="/windows" element={<Windows />} />
+      <Route path="/mac" element={<Mac />} />
+      <Route path="/android" element={<Android />} />
+      <Route path="/ios" element={<IOS />} />
+      <Route path="/linux" element={<Linux />} />
+
+      {/* Legal & Other Pages */}
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-of-use" element={<TermsOfUse />} />
+      <Route path="/tech-specs" element={<TechSpecs />} />
+      <Route path="/partners" element={<Partners />} />
+
+      {/* Blog */}
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:id" element={<BlogPost />} />
+      
+      {/* Templates */}
+      <Route path="/templates" element={<Templates />} />
+      <Route path="/templates/:id" element={<TemplateDetail />} />
+      
+      {/* Reports */}
+      <Route path="/serp-report" element={<SerpReport />} />
+      <Route path="/backlink-report" element={<BacklinkReport />} />
+      <Route path="/logs" element={<LogViewer />} />
+    </Routes>
+  );
+};
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/download" element={<Download />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/education" element={<Education />} />
-
-        {/* Office Apps */}
-        <Route path="/writer" element={<Writer />} />
-        <Route path="/spreadsheet" element={<Spreadsheet />} />
-        <Route path="/presentation" element={<Presentation />} />
-        <Route path="/pdf" element={<PDF />} />
-
-        {/* Platform Pages */}
-        <Route path="/windows" element={<Windows />} />
-        <Route path="/mac" element={<Mac />} />
-        <Route path="/android" element={<Android />} />
-        <Route path="/ios" element={<IOS />} />
-        <Route path="/linux" element={<Linux />} />
-
-        {/* Legal & Other Pages */}
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-use" element={<TermsOfUse />} />
-        <Route path="/tech-specs" element={<TechSpecs />} />
-        <Route path="/partners" element={<Partners />} />
-
-        {/* Blog */}
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogPost />} />
-      </Routes>
+      <AppContent />
     </Router>
   );
 }
 
-export default App
+export default App;

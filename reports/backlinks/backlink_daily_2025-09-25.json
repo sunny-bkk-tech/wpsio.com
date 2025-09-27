@@ -1,0 +1,29 @@
+{
+  "date": "2025-09-25",
+  "newBacklinks": [
+    {
+      "id": "1758799686291",
+      "url": "https://reddit.com/r/ResumeHelp/comments/abc123",
+      "domain": "reddit.com",
+      "anchor": "",
+      "type": "social",
+      "quality": "medium",
+      "notes": "",
+      "dateAdded": "2025-09-25",
+      "status": "active"
+    }
+  ],
+  "stats": {
+    "total": 4,
+    "byType": {
+      "guest": 1,
+      "platform": 1,
+      "directory": 1,
+      "social": 1
+    },
+    "byQuality": {
+      "high": 2,
+      "medium": 2
+    }
+  }
+}

@@ -1,50 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSEO } from '../utils/useSEO';
 import Layout from '../components/Layout';
+import { getBlogPostsList } from '../utils/blogData';
+import type { BlogPostData } from '../types/blog';
 
 const Blog: React.FC = () => {
-  const blogPosts = [
-    {
-      id: 'excel',
-      title: 'Excel 高级技巧',
-      excerpt: '掌握 Excel 高级功能',
-      date: '2025-09-24',
-      category: '教程',
-      readTime: '1分钟'
-    },
-    {
-      id: 'wps-office-2024',
-      title: 'WPS Office 2024 新功能详解',
-      excerpt: '了解 WPS Office 最新版本带来的强大功能',
-      date: '2025-09-24',
-      category: '新功能',
-      readTime: '1分钟'
-    },
-    {
-      id: 'wps-office-2024-new-features',
-      title: 'WPS Office 2024 新功能详解',
-      excerpt: '了解 WPS Office 最新版本带来的强大功能，提升您的办公效率。',
-      date: '2025-01-15',
-      category: '新功能',
-      readTime: '5分钟'
-    },
-    {
-      id: 'excel-formulas-beginners-guide',
-      title: 'Excel 公式入门指南 - 从零开始学表格',
-      excerpt: '掌握 Excel 基础公式，让数据处理变得简单高效。',
-      date: '2025-01-08',
-      category: '教程',
-      readTime: '8分钟'
-    },
-    {
-      id: 'powerpoint-design-tips',
-      title: 'PowerPoint 设计技巧 - 制作专业演示文稿',
-      excerpt: '学习如何设计吸引人的演示文稿，提升您的演讲效果。',
-      date: '2025-01-01',
-      category: '设计',
-      readTime: '6分钟'
-    }
-  ];
+  const [blogPosts, setBlogPosts] = useState<BlogPostData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadBlogPosts = async () => {
+      try {
+        const posts = await getBlogPostsList();
+        setBlogPosts(posts);
+      } catch (error) {
+        console.error('Error loading blog posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadBlogPosts();
+  }, []);
 
   useSEO({
     title: 'WPS Office 博客 - 办公软件技巧与教程 | 提升办公效率',
@@ -103,6 +80,18 @@ const Blog: React.FC = () => {
       }
     ]
   });
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="blog-page">
+          <div className="container">
+            <div className="loading">Loading blog posts...</div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>

@@ -6,9 +6,15 @@ export default defineConfig({
   plugins: [react()],
   base: '/', // Use absolute paths so deep links load assets correctly
   server: {
-    port: 8080,
-    host: true, // Allow external connections
-    allowedHosts: ['wpsio.com', 'localhost', '127.0.0.1'],
+    port: 8081, // Changed port to avoid conflict with our backend server
+    host: '0.0.0.0', // Listen on all interfaces for IP access
+    proxy: {
+      // Proxy API requests to our logging server in development
+      '/api': {
+        target: 'http://localhost:8080', // The address of our logging server
+        changeOrigin: true,
+      },
+    },
     fs: {
       allow: ['..']
     },

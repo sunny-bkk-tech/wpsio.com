@@ -1,0 +1,101 @@
+/* Styles for the Log Viewer page */
+.log-viewer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: 6rem; /* Adjust for fixed header */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.log-viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.log-viewer-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.refresh-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.refresh-button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.logs-table-wrapper {
+  overflow-x: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  border-radius: 8px;
+}
+
+.logs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.logs-table th,
+.logs-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.logs-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.logs-table tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+/* Cell-specific styles for truncation */
+.path-cell, .referrer-cell, .ua-cell {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.time-cell {
+  color: #7f8c8d;
+}
+
+.ip-cell {
+  font-family: monospace;
+}
+
+.loading-container, .error-container {
+  padding-top: 6rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #7f8c8d;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

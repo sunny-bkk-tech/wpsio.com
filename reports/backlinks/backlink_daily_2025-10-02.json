@@ -2,24 +2,24 @@
   "date": "2025-10-02",
   "newBacklinks": [
     {
-      "id": "1759374763985",
-      "url": "https://vietnam-business.com",
-      "domain": "vietnam-business.com",
+      "id": "1759390545036",
+      "url": "https://sgcompany.com",
+      "domain": "sgcompany.com",
       "anchor": "",
       "type": "directory",
       "quality": "high",
-      "notes": "Submit business listing: Title: N/A, Contact form: No",
+      "notes": "Submit business listing: Title: Sorensen Gross | Setting a Higher Standard in Construction, Contact form: Yes",
       "dateAdded": "2025-10-02",
       "status": "active"
     }
   ],
   "stats": {
-    "total": 1,
+    "total": 2,
     "byType": {
-      "directory": 1
+      "directory": 2
     },
     "byQuality": {
-      "high": 1
+      "high": 2
     }
   }
 }

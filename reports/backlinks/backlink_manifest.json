@@ -494,6 +494,17 @@
       "notes": "Submit business listing: Title: N/A, Contact form: No",
       "dateAdded": "2025-10-02",
       "status": "active"
+    },
+    {
+      "id": "1759390545036",
+      "url": "https://sgcompany.com",
+      "domain": "sgcompany.com",
+      "anchor": "",
+      "type": "directory",
+      "quality": "high",
+      "notes": "Submit business listing: Title: Sorensen Gross | Setting a Higher Standard in Construction, Contact form: Yes",
+      "dateAdded": "2025-10-02",
+      "status": "active"
     }
   ],
   "dailyStats": {
@@ -532,12 +543,12 @@
       }
     },
     "2025-10-02": {
-      "total": 1,
+      "total": 2,
       "byType": {
-        "directory": 1
+        "directory": 2
       },
       "byQuality": {
-        "high": 1
+        "high": 2
       }
     }
   }

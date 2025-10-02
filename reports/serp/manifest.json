@@ -1,8 +1,12 @@
 {
   "reports": [
     {
-      "file": "manual_serp_links-20251002-143048.csv",
-      "generatedAt": "2025-10-02T14:30:48.000Z"
+      "file": "manual_serp_links-20251002-144306.csv",
+      "generatedAt": "2025-10-02T14:43:06.000Z"
+    },
+    {
+      "file": "manual_serp_links-20251002-144324.csv",
+      "generatedAt": "2025-10-02T07:43:24.511Z"
     }
   ]
 }

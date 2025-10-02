@@ -67,7 +67,7 @@ module.exports = {
     },
     {
       name: 'pm2-monitor',
-      script: 'scripts/pm2-email-listener.js',
+      script: 'scripts/pm2-monitor-simple.js',
       instances: 1,
       autorestart: true,
       watch: false,

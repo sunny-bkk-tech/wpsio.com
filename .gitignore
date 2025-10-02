@@ -24,7 +24,4 @@ visitor_logs.jsonl
 *.sln
 *.sw?
 .env
-reports/backlinks/management
-reports/backlinks/free-discovery
-reports/serp
-reports
+reports/*

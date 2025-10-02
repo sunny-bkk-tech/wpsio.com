@@ -1,0 +1,502 @@
+[
+  {
+    "domain": "sgbiz.com",
+    "type": "directory",
+    "priority": "high",
+    "action": "Submit business listing",
+    "title": "sgbiz.com&nbsp;-&nbsp;This website is for sale!&nbsp;-&nbsp;sgbiz Resources and Information.",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: sgbiz.com&nbsp;-&nbsp;This website is for sale!&nbsp;-&nbsp;sgbiz Resources and Information., Contact form: Yes"
+  },
+  {
+    "domain": "sgdirectory.com",
+    "type": "directory",
+    "priority": "high",
+    "action": "Submit business listing",
+    "title": "Singapore Guide | Singapore Directory of Things",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Singapore Guide | Singapore Directory of Things, Contact form: Yes"
+  },
+  {
+    "domain": "yellowpages.com.my",
+    "type": "directory",
+    "priority": "high",
+    "action": "Submit business listing",
+    "title": "yellowpages.com.my",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: yellowpages.com.my, Contact form: Yes"
+  },
+  {
+    "domain": "malaysiabusinessdirectory.com",
+    "type": "directory",
+    "priority": "high",
+    "action": "Submit business listing",
+    "title": null,
+    "hasContactForm": false,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: N/A, Contact form: No"
+  },
+  {
+    "domain": "indodirectory.com",
+    "type": "directory",
+    "priority": "high",
+    "action": "Submit business listing",
+    "title": null,
+    "hasContactForm": false,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: N/A, Contact form: No"
+  },
+  {
+    "domain": "yellowpages.vn",
+    "type": "directory",
+    "priority": "high",
+    "action": "Submit business listing",
+    "title": "Trang Vàng - Những Trang Vàng Doanh Nghiệp Việt Nam",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: Trang Vàng - Những Trang Vàng Doanh Nghiệp Việt Nam, Contact form: Yes"
+  },
+  {
+    "domain": "vietnam-business.com",
+    "type": "directory",
+    "priority": "high",
+    "action": "Submit business listing",
+    "title": null,
+    "hasContactForm": false,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: N/A, Contact form: No"
+  },
+  {
+    "domain": "phildirectory.com",
+    "type": "directory",
+    "priority": "high",
+    "action": "Submit business listing",
+    "title": null,
+    "hasContactForm": false,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: N/A, Contact form: No"
+  },
+  {
+    "domain": "straitstimes.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "The Straits Times - Breaking news, Singapore news, Asia and world news &amp; multimedia",
+    "hasContactForm": true,
+    "emails": [
+      "stics@sph.com.sg"
+    ],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: The Straits Times - Breaking news, Singapore news, Asia and world news &amp; multimedia, Contact form: Yes"
+  },
+  {
+    "domain": "channelnewsasia.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Breaking News and Analysis on Asia and the World | Real-Time Coverage out of Asia and Singapore - CNA",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Breaking News and Analysis on Asia and the World | Real-Time Coverage out of Asia and Singapore - CNA, Contact form: Yes"
+  },
+  {
+    "domain": "sg.news.yahoo.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Latest news and current events updates | Yahoo News Singapore",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "resource_page",
+        "description": "Potential resource page for office software",
+        "priority": "high"
+      },
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Latest news and current events updates | Yahoo News Singapore, Contact form: Yes"
+  },
+  {
+    "domain": "nst.com.my",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "New Straits Times (NST Online) | Malaysia News &amp; World Updates",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: New Straits Times (NST Online) | Malaysia News &amp; World Updates, Contact form: Yes"
+  },
+  {
+    "domain": "nationthailand.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Nation Thailand news website, thai news, thailand news, Bangkok thailand, aec, breaking news : Nation Thailand",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Nation Thailand news website, thai news, thailand news, Bangkok thailand, aec, breaking news : Nation Thailand, Contact form: Yes"
+  },
+  {
+    "domain": "thaipbs.or.th",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Thai PBS - สื่อสาธารณะ คุณค่าที่ยึดโยงกับประชาชน",
+    "hasContactForm": true,
+    "emails": [
+      "thaipbs@2x.png",
+      "altv-dark@2x.png",
+      "theactive@2x.png",
+      "theactive-dark@2x.png",
+      "kids-dark@2x.png",
+      "podcast@2x.png",
+      "world@2x.png",
+      "world-dark@2x.png",
+      "local@2x.png",
+      "local-dark@2x.png",
+      "verify-dark@2x.png",
+      "verify@2x.png",
+      "verify-icon@2x.png"
+    ],
+    "opportunities": [],
+    "notes": "Title: Thai PBS - สื่อสาธารณะ คุณค่าที่ยึดโยงกับประชาชน, Contact form: Yes"
+  },
+  {
+    "domain": "kompas.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Berita Terkini Hari Ini, Kabar Akurat Terpercaya - Kompas.com",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: Berita Terkini Hari Ini, Kabar Akurat Terpercaya - Kompas.com, Contact form: Yes"
+  },
+  {
+    "domain": "vietnamnews.vn",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Vietnam News | Politics, Business, Economy, Society, Life, Sports - VietNam News",
+    "hasContactForm": true,
+    "emails": [
+      "vnnews@vnagency.com.vn"
+    ],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Vietnam News | Politics, Business, Economy, Society, Life, Sports - VietNam News, Contact form: Yes"
+  },
+  {
+    "domain": "vnexpress.net",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Báo VnExpress - Báo tiếng Việt nhiều người xem nhất",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: Báo VnExpress - Báo tiếng Việt nhiều người xem nhất, Contact form: Yes"
+  },
+  {
+    "domain": "tuoitrenews.vn",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Tuoi Tre News | The News Gateway to Vietnam",
+    "hasContactForm": true,
+    "emails": [
+      "tto@tuoitre.com.vn"
+    ],
+    "opportunities": [
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Tuoi Tre News | The News Gateway to Vietnam, Contact form: Yes"
+  },
+  {
+    "domain": "thanhnien.vn",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Tin tức 24h mới nhất, tin nhanh, tin nóng hàng ngày | Báo Thanh Niên",
+    "hasContactForm": true,
+    "emails": [
+      "toasoan@thanhnien.vn"
+    ],
+    "opportunities": [],
+    "notes": "Title: Tin tức 24h mới nhất, tin nhanh, tin nóng hàng ngày | Báo Thanh Niên, Contact form: Yes"
+  },
+  {
+    "domain": "vn.news.yahoo.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Yahoo Tìm Kiếm - Tìm Kiếm Web",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Yahoo Tìm Kiếm - Tìm Kiếm Web, Contact form: Yes"
+  },
+  {
+    "domain": "inquirer.net",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "INQUIRER.net | Philippine news for Filipinos",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: INQUIRER.net | Philippine news for Filipinos, Contact form: Yes"
+  },
+  {
+    "domain": "gmanetwork.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "GMA Network | News and Entertainment",
+    "hasContactForm": true,
+    "emails": [
+      "youremail@email.com"
+    ],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: GMA Network | News and Entertainment, Contact form: Yes"
+  },
+  {
+    "domain": "ph.news.yahoo.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Latest news and current events updates | Yahoo News Singapore",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "resource_page",
+        "description": "Potential resource page for office software",
+        "priority": "high"
+      },
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Latest news and current events updates | Yahoo News Singapore, Contact form: Yes"
+  },
+  {
+    "domain": "techinasia.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Tech in Asia - Connecting Asia's startup ecosystem",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      }
+    ],
+    "notes": "Title: Tech in Asia - Connecting Asia's startup ecosystem, Contact form: Yes"
+  },
+  {
+    "domain": "soyacincau.com",
+    "type": "tech_blog",
+    "priority": "medium",
+    "action": "Pitch guest post or collaboration",
+    "title": "SoyaCincau",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      }
+    ],
+    "notes": "Title: SoyaCincau, Contact form: Yes"
+  },
+  {
+    "domain": "lowyat.net",
+    "type": "tech_blog",
+    "priority": "medium",
+    "action": "Pitch guest post or collaboration",
+    "title": "Lowyat.NET | Technology News Malaysia",
+    "hasContactForm": true,
+    "emails": [
+      "logo-desktop-25@2x-1.png",
+      "logo-sticky-25@2x.png",
+      "logo-mobile-25@2x.png"
+    ],
+    "opportunities": [
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Lowyat.NET | Technology News Malaysia, Contact form: Yes"
+  },
+  {
+    "domain": "soyacincau.com",
+    "type": "tech_blog",
+    "priority": "medium",
+    "action": "Pitch guest post or collaboration",
+    "title": "SoyaCincau",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      }
+    ],
+    "notes": "Title: SoyaCincau, Contact form: Yes"
+  },
+  {
+    "domain": "vnexpress.net",
+    "type": "tech_blog",
+    "priority": "medium",
+    "action": "Pitch guest post or collaboration",
+    "title": "Báo VnExpress - Báo tiếng Việt nhiều người xem nhất",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: Báo VnExpress - Báo tiếng Việt nhiều người xem nhất, Contact form: Yes"
+  },
+  {
+    "domain": "gmanetwork.com",
+    "type": "tech_blog",
+    "priority": "medium",
+    "action": "Pitch guest post or collaboration",
+    "title": "GMA Network | News and Entertainment",
+    "hasContactForm": true,
+    "emails": [
+      "youremail@email.com"
+    ],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: GMA Network | News and Entertainment, Contact form: Yes"
+  }
+]

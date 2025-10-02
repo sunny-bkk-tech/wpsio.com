@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node logging-server.js",
-    "build": "tsc -b && vite build && node scripts/copy-reports-to-dist.js",
+    "build": "yarn vite build && node scripts/copy-reports-to-dist.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "download-wps-assets": "node scripts/download-wps-assets.js",
@@ -17,6 +17,26 @@
     "backlink:add": "node scripts/backlink-tracker.js",
     "backlink:report": "node scripts/backlink-tracker.js --report",
     "backlink:summary": "node scripts/backlink-tracker.js --summary",
+    "sea:add": "node scripts/sea-backlink-tracker.js --add",
+    "sea:report": "node scripts/sea-backlink-tracker.js --report",
+    "discover": "node scripts/backlink-discovery.js",
+    "free-discover": "node scripts/free-backlink-discovery.js",
+    "free-discover-fast": "node scripts/free-backlink-discovery.js --fast",
+    "manage": "node scripts/backlink-manager.js",
+    "automate": "node scripts/daily-backlink-automation.js",
+    "automate:complete": "node scripts/complete-automation.js",
+    "schedule:automation": "node scripts/schedule-automation.js",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop all",
+    "pm2:restart": "pm2 restart all",
+    "pm2:reload": "pm2 reload all",
+    "pm2:status": "pm2 status",
+    "pm2:logs": "pm2 logs",
+    "pm2:monit": "pm2 monit",
+    "pm2:save": "pm2 save",
+    "pm2:delete": "pm2 delete all",
+    "pm2:build-deploy": "node scripts/pm2-build-deploy.js",
+    "pm2:manager": "node scripts/pm2-manager.js",
     "blog:post": "tsx scripts/post-from-json.ts"
   },
   "dependencies": {
@@ -28,6 +48,7 @@
     "geoip-lite": "^1.4.10",
     "http-proxy-middleware": "^3.0.5",
     "logger": "^0.0.1",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^7.0.6",
     "pino": "^9.11.0",
     "pm2": "^6.0.10",
@@ -51,6 +72,6 @@
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2"
+    "vite": "^7.1.7"
   }
 }

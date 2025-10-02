@@ -46,8 +46,9 @@ const generateBlogPostFromInput = (input: BlogPostInput): BlogPostData => {
   const readTimeMinutes = Math.ceil(wordCount / 200);
   const readTime = `${readTimeMinutes}分钟`;
 
-  // Generate excerpt from content (first 100 characters)
-  const excerpt = input.content.length > 100 ? input.content.substring(0, 100) + '...' : input.content;
+  // Generate excerpt from content (strip HTML tags and get first 100 characters)
+  const plainTextContent = input.content.replace(/<[^>]*>/g, '').replace(/\n/g, ' ').trim();
+  const excerpt = plainTextContent.length > 100 ? plainTextContent.substring(0, 100) + '...' : plainTextContent;
 
   return {
     id,

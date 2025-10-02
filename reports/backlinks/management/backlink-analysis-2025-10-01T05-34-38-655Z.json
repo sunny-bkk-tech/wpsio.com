@@ -1,0 +1,14 @@
+{
+  "discovered": [
+    {
+      "domain": "channelnewsasia.com",
+      "accessible": false,
+      "error": "request to https://channelnewsasia.com/ failed, reason: getaddrinfo ENOTFOUND channelnewsasia.com",
+      "analyzedAt": "2025-10-01T05:34:38.654Z",
+      "operation": "analyze"
+    }
+  ],
+  "analyzed": [],
+  "outreach": [],
+  "generatedAt": "2025-10-01T05:34:32.573Z"
+}

@@ -1,0 +1,38 @@
+{
+  "discovered": [
+    {
+      "domain": "straitstimes.com",
+      "accessible": true,
+      "status": 200,
+      "title": "The Straits Times - Breaking news, Singapore news, Asia and world news &amp; multimedia",
+      "description": "The Straits Times - Get latest breaking news, business, sports, lifestyle, tech &amp; multimedia and more news in Singapore, Asia &amp; rest of the world at straitstimes.com.",
+      "hasContactForm": true,
+      "hasAboutPage": true,
+      "socialLinks": [
+        {
+          "platform": "facebook",
+          "urls": [
+            "facebook.com/TheStraitsTimes"
+          ]
+        },
+        {
+          "platform": "linkedin",
+          "urls": [
+            "linkedin.com/company/the-straits-times"
+          ]
+        },
+        {
+          "platform": "instagram",
+          "urls": [
+            "instagram.com/straits_times"
+          ]
+        }
+      ],
+      "analyzedAt": "2025-10-01T02:29:12.447Z",
+      "operation": "analyze"
+    }
+  ],
+  "analyzed": [],
+  "outreach": [],
+  "generatedAt": "2025-10-01T02:29:11.392Z"
+}

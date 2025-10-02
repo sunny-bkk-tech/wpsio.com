@@ -1,0 +1,48 @@
+{
+  "discovered": [
+    {
+      "domain": "channelnewsasia.com",
+      "accessible": true,
+      "status": 200,
+      "title": "Breaking News and Analysis on Asia and the World | Real-Time Coverage out of Asia and Singapore - CNA",
+      "description": "Get 24/7 real-time updates on breaking news from Asia, Singapore and around the world. CNA delivers accurate, timely coverage of events as they unfold. Stay informed.",
+      "hasContactForm": true,
+      "hasAboutPage": true,
+      "socialLinks": [
+        {
+          "platform": "facebook",
+          "urls": [
+            "facebook.com/ChannelNewsAsia/",
+            "facebook.com/channelnewsasia",
+            "facebook.com/ChannelNewsAsia",
+            "facebook.com/nspsg"
+          ]
+        },
+        {
+          "platform": "twitter",
+          "urls": [
+            "twitter.com/ChannelNewsAsia",
+            "twitter.com/channelnewsasia"
+          ]
+        },
+        {
+          "platform": "linkedin",
+          "urls": [
+            "linkedin.com/company/channel-newsasia/"
+          ]
+        },
+        {
+          "platform": "instagram",
+          "urls": [
+            "instagram.com/channelnewsasia"
+          ]
+        }
+      ],
+      "analyzedAt": "2025-09-27T14:17:00.789Z",
+      "operation": "analyze"
+    }
+  ],
+  "analyzed": [],
+  "outreach": [],
+  "generatedAt": "2025-09-27T14:16:59.475Z"
+}

@@ -8,37 +8,57 @@ This plan provides a systematic approach to building backlinks for wpsio.com thr
 ### Monday: Content Creation
 - **Blog Post**: Write 1 tutorial or guide (500-800 words)
 - **Topics**: "WPS Office vs Microsoft Office", "PDF editing tips", "Office productivity hacks"
+- **Southeast Asia Focus**: Include regional examples, local business cases, ASEAN market insights
 - **Target**: 2-3 internal links to key pages
 - **Action**: Post via `yarn blog:post your-post.json`
 
 ### Tuesday: Outreach & Guest Posting
 - **Research**: Find 5 relevant blogs/websites in office software niche
+- **Southeast Asia Focus**: Target regional publications (The Straits Times, Bangkok Post, Jakarta Post, etc.)
 - **Pitch**: Send 3 personalized outreach emails
-- **Focus**: Tech blogs, productivity sites, software review sites
-- **Template**: "Hi [Name], I noticed your article on [topic]. I wrote a complementary guide on WPS Office that your readers might find valuable..."
+- **Focus**: Tech blogs, productivity sites, software review sites, ASEAN business publications
+- **Template**: "Hi [Name], I noticed your article on [topic]. I wrote a complementary guide on WPS Office for Southeast Asian businesses that your readers might find valuable..."
 
 ### Wednesday: Directory & Citation Building
 - **Submit**: 3 business directories (Yelp, Yellow Pages, local directories)
+- **Southeast Asia Focus**: Target regional directories (Singapore Business Directory, Malaysia Business Directory, Thailand Business Directory, etc.)
 - **Citations**: Update NAP (Name, Address, Phone) consistency
-- **Industry**: Software directories, office tool listings
+- **Industry**: Software directories, office tool listings, ASEAN business directories
 - **Tools**: Use BrightLocal or Whitespark for citation tracking
 
 ### Thursday: Social Media & Community
-- **Reddit**: Share helpful content in r/software, r/productivity, r/Office365
-- **Quora**: Answer 3 questions about office software, mention WPS
-- **LinkedIn**: Share industry insights, engage with office software discussions
-- **Forums**: Participate in tech forums, provide helpful answers
+- **Reddit**: Share helpful content in r/software, r/productivity, r/Office365, r/singapore, r/malaysia, r/thailand, r/indonesia, r/vietnam, r/philippines
+- **Quora**: Answer 3 questions about office software, mention WPS, focus on Southeast Asian business needs
+- **LinkedIn**: Share industry insights, engage with office software discussions, join ASEAN business groups
+- **Forums**: Participate in tech forums, provide helpful answers, engage in regional business communities
 
 ### Friday: Link Building & Partnerships
-- **Resource Pages**: Find "office software resources" pages, request inclusion
-- **Partnerships**: Reach out to complementary tools (PDF converters, cloud storage)
-- **Broken Links**: Use tools to find broken links on relevant sites, offer replacement content
+- **Resource Pages**: Find "office software resources" pages, request inclusion, focus on Southeast Asian business resource pages
+- **Partnerships**: Reach out to complementary tools (PDF converters, cloud storage), target ASEAN-based companies
+- **Broken Links**: Use tools to find broken links on relevant sites, offer replacement content, focus on regional websites
 - **Tools**: Ahrefs Site Explorer, Majestic, or free alternatives
 
 ### Weekend: Analysis & Planning
 - **Track**: Review backlink progress using tracking tools
 - **Analyze**: Check which strategies are working best
 - **Plan**: Prepare next week's content and outreach targets
+
+## Southeast Asia Specific Daily Tasks
+
+### Daily Southeast Asia Focus (15-20 minutes/day)
+- **Monday**: Research 1 Southeast Asian business publication for guest posting
+- **Tuesday**: Submit to 1 ASEAN business directory
+- **Wednesday**: Engage with 1 Southeast Asian LinkedIn business group
+- **Thursday**: Answer 1 Quora question about office software in Southeast Asia
+- **Friday**: Research 1 Southeast Asian influencer for potential collaboration
+- **Saturday**: Review Southeast Asian competitor backlinks
+- **Sunday**: Plan next week's Southeast Asia outreach targets
+
+### Weekly Southeast Asia Goals
+- **Week 1**: Submit to 5 Southeast Asian business directories
+- **Week 2**: Send 3 guest post pitches to regional publications
+- **Week 3**: Engage with 10 Southeast Asian business communities
+- **Week 4**: Establish 2 partnerships with ASEAN-based companies
 
 ## Weekly Goals
 

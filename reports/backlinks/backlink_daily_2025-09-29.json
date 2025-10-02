@@ -1,0 +1,25 @@
+{
+  "date": "2025-09-29",
+  "newBacklinks": [
+    {
+      "id": "1759104880384",
+      "url": "https://detik.com",
+      "domain": "detik.com",
+      "anchor": "",
+      "type": "publication",
+      "quality": "high",
+      "notes": "Pitch guest post: Title: detikcom - Informasi Berita Terkini dan Terbaru Hari Ini, Contact form: Yes",
+      "dateAdded": "2025-09-29",
+      "status": "active"
+    }
+  ],
+  "stats": {
+    "total": 1,
+    "byType": {
+      "publication": 1
+    },
+    "byQuality": {
+      "high": 1
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2025-09-27",
+  "newBacklinks": [
+    {
+      "id": "1758981790407",
+      "url": "https://techxcite.com",
+      "domain": "techxcite.com",
+      "anchor": "",
+      "type": "tech_blog",
+      "quality": "medium",
+      "notes": "Pitch guest post or collaboration: Title: TechXcite, Contact form: Yes",
+      "dateAdded": "2025-09-27",
+      "status": "active"
+    }
+  ],
+  "stats": {
+    "total": 39,
+    "byType": {
+      "directory": 10,
+      "publication": 24,
+      "tech_blog": 5
+    },
+    "byQuality": {
+      "high": 34,
+      "medium": 5
+    }
+  }
+}

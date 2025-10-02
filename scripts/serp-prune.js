@@ -37,22 +37,34 @@ function prune() {
   }
 
   const files = listFiles();
-  const groups = buildGroups(files);
   const toDelete = [];
-
-  // Keep latest CSV and JSON per day; delete older ones
-  for (const [, items] of groups) {
-    const csvs = items.filter(i => i.ext === 'csv').sort((a, b) => b.stamp.localeCompare(a.stamp));
-    const jsons = items.filter(i => i.ext === 'json').sort((a, b) => b.stamp.localeCompare(a.stamp));
-    // keep index 0 of each list
-    csvs.slice(1).forEach(i => toDelete.push(i.file));
-    jsons.slice(1).forEach(i => toDelete.push(i.file));
-  }
-
+  
   // Never delete pointer files
   const protectedFiles = new Set(['manual_serp_links.csv', 'manual_serp_links.json', 'manifest.json']);
+  
+  // Get all stamped CSV files
+  const csvFiles = files
+    .filter(f => f.endsWith('.csv') && parseStamp(f))
+    .map(f => ({ file: f, stamp: parseStamp(f) }))
+    .sort((a, b) => b.stamp.stamp.localeCompare(a.stamp.stamp));
+  
+  // Get all stamped JSON files
+  const jsonFiles = files
+    .filter(f => f.endsWith('.json') && parseStamp(f))
+    .map(f => ({ file: f, stamp: parseStamp(f) }))
+    .sort((a, b) => b.stamp.stamp.localeCompare(a.stamp.stamp));
+  
+  // Keep only the latest 1 CSV and 1 JSON (change to 3 or 5 if you want to keep more)
+  const keepCount = 1;
+  
+  // Mark old CSVs for deletion
+  csvFiles.slice(keepCount).forEach(item => toDelete.push(item.file));
+  
+  // Mark old JSONs for deletion
+  jsonFiles.slice(keepCount).forEach(item => toDelete.push(item.file));
+  
+  // Delete old files
   const finalDelete = toDelete.filter(f => !protectedFiles.has(f));
-
   for (const f of finalDelete) {
     try {
       fs.unlinkSync(path.join(dir, f));

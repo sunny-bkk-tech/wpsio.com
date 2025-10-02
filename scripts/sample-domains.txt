@@ -1,0 +1,52 @@
+# Sample domains for backlink discovery and management
+# Add your target domains here, one per line
+# Lines starting with # are comments
+
+# Southeast Asian Business Directories
+yellowpages.com.sg
+sgbiz.com
+yellowpages.com.my
+malaysiabusinessdirectory.com
+yellowpages.co.th
+thailandbusinessdirectory.com
+yellowpages.co.id
+indonesiabusinessdirectory.com
+yellowpages.vn
+vietnambusinessdirectory.com
+yellowpages.com.ph
+philippinesbusinessdirectory.com
+
+# Southeast Asian Publications
+straitstimes.com
+todayonline.com
+channelnewsasia.com
+thestar.com.my
+nst.com.my
+bangkokpost.com
+nationthailand.com
+jakartapost.com
+kompas.com
+vietnamnews.vn
+vnexpress.net
+inquirer.net
+mb.com.ph
+
+# Tech Blogs and Communities
+techinasia.com
+e27.co
+startupnews.asia
+hardwarezone.com.sg
+soyacincau.com
+lowyat.net
+techgoondu.com
+techxcite.com
+detik.com
+gmanetwork.com
+
+# Competitors
+microsoft.com
+libreoffice.org
+openoffice.org
+google.com
+zoho.com
+onlyoffice.com

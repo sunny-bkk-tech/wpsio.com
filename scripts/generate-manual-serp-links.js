@@ -139,3 +139,25 @@ fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
 console.log(`Wrote ${stampedCsvPath}`);
 console.log(`Updated latest at ${latestCsv}`);
 console.log(`Updated manifest at ${manifestPath}`);
+
+// Copy reports to dist directory if it exists (for production serving)
+const distReportsDir = path.resolve(process.cwd(), 'dist/reports/serp');
+if (fs.existsSync(path.resolve(process.cwd(), 'dist'))) {
+  try {
+    if (!fs.existsSync(distReportsDir)) {
+      fs.mkdirSync(distReportsDir, { recursive: true });
+    }
+    
+    // Copy all SERP reports to dist
+    const serpFiles = fs.readdirSync(outDir);
+    for (const file of serpFiles) {
+      const srcPath = path.join(outDir, file);
+      const destPath = path.join(distReportsDir, file);
+      fs.copyFileSync(srcPath, destPath);
+    }
+    
+    console.log('✅ Copied reports to dist/reports/serp/');
+  } catch (err) {
+    console.warn('⚠️  Failed to copy to dist:', err.message);
+  }
+}

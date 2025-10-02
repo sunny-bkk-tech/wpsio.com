@@ -15,24 +15,16 @@ const LOG_FILE_PATH = path.join(__dirname, 'visitor_logs.jsonl');
 const app = express();
 const PORT = process.env.PORT || 8080; // Use the main application port
 
-// Configure pino to log to both the console (prettified) and a file (as JSON)
-const transport = pino.transport({
-  targets: [
-    {
-      target: 'pino-pretty',
-      options: {
-        colorize: true,
-        translateTime: 'SYS:yyyy-mm-dd HH:MM:ss',
-        ignore: 'pid,hostname',
-      },
+// Configure pino with basic console logging
+const logger = pino({
+  level: 'info',
+  timestamp: pino.stdTimeFunctions.isoTime,
+  formatters: {
+    level: (label) => {
+      return { level: label };
     },
-    {
-      target: 'pino/file',
-      options: { destination: LOG_FILE_PATH },
-    },
-  ],
+  },
 });
-const logger = pino(transport);
 
 // Middleware setup
 app.set('trust proxy', 1); // Trust the first proxy in front of the app (e.g., Nginx)

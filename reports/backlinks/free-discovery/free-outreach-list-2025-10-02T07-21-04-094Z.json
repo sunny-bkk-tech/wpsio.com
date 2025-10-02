@@ -1,5 +1,16 @@
 [
   {
+    "domain": "yellowpages.com.sg",
+    "type": "directory",
+    "priority": "high",
+    "action": "Submit business listing",
+    "title": "Radware Captcha Page",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: Radware Captcha Page, Contact form: Yes"
+  },
+  {
     "domain": "sgbiz.com",
     "type": "directory",
     "priority": "high",
@@ -123,6 +134,23 @@
     "notes": "Title: The Straits Times - Breaking news, Singapore news, Asia and world news &amp; multimedia, Contact form: Yes"
   },
   {
+    "domain": "todayonline.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Latest news in Singapore and around the world – TODAY",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Latest news in Singapore and around the world – TODAY, Contact form: Yes"
+  },
+  {
     "domain": "channelnewsasia.com",
     "type": "publication",
     "priority": "high",
@@ -140,11 +168,47 @@
     "notes": "Title: Breaking News and Analysis on Asia and the World | Real-Time Coverage out of Asia and Singapore - CNA, Contact form: Yes"
   },
   {
-    "domain": "sg.news.yahoo.com",
+    "domain": "business-times.com.sg",
     "type": "publication",
     "priority": "high",
     "action": "Pitch guest post",
-    "title": "Latest news and current events updates | Yahoo News Singapore",
+    "title": "The Business Times - Get the Latest Business &amp; Financial News",
+    "hasContactForm": true,
+    "emails": [
+      "btnews@sph.com.sg",
+      "businesstimes-keywords@sph.com.sg"
+    ],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: The Business Times - Get the Latest Business &amp; Financial News, Contact form: Yes"
+  },
+  {
+    "domain": "thestar.com.my",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "The Star | Malaysia News: National, Regional and World News",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [],
+    "notes": "Title: The Star | Malaysia News: National, Regional and World News, Contact form: Yes"
+  },
+  {
+    "domain": "my.news.yahoo.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Latest news and current events updates | Yahoo News Malaysia",
     "hasContactForm": true,
     "emails": [],
     "opportunities": [
@@ -164,18 +228,26 @@
         "priority": "medium"
       }
     ],
-    "notes": "Title: Latest news and current events updates | Yahoo News Singapore, Contact form: Yes"
+    "notes": "Title: Latest news and current events updates | Yahoo News Malaysia, Contact form: Yes"
   },
   {
-    "domain": "nst.com.my",
+    "domain": "bangkokpost.com",
     "type": "publication",
     "priority": "high",
     "action": "Pitch guest post",
-    "title": "New Straits Times (NST Online) | Malaysia News &amp; World Updates",
+    "title": "Bangkok Post - Bangkok Post - The world’s window in Thailand | Breaking news, Thailand news, Latest news, World news",
     "hasContactForm": true,
-    "emails": [],
-    "opportunities": [],
-    "notes": "Title: New Straits Times (NST Online) | Malaysia News &amp; World Updates, Contact form: Yes"
+    "emails": [
+      "webmaster@bangkokpost.co.th"
+    ],
+    "opportunities": [
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Bangkok Post - Bangkok Post - The world’s window in Thailand | Breaking news, Thailand news, Latest news, World news, Contact form: Yes"
   },
   {
     "domain": "nationthailand.com",
@@ -234,6 +306,40 @@
     "emails": [],
     "opportunities": [],
     "notes": "Title: Berita Terkini Hari Ini, Kabar Akurat Terpercaya - Kompas.com, Contact form: Yes"
+  },
+  {
+    "domain": "detik.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "detikcom - Informasi Berita Terkini dan Terbaru Hari Ini",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: detikcom - Informasi Berita Terkini dan Terbaru Hari Ini, Contact form: Yes"
+  },
+  {
+    "domain": "id.news.yahoo.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Yahoo Search - Pencarian Web",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Yahoo Search - Pencarian Web, Contact form: Yes"
   },
   {
     "domain": "vietnamnews.vn",
@@ -366,6 +472,28 @@
     "notes": "Title: GMA Network | News and Entertainment, Contact form: Yes"
   },
   {
+    "domain": "philstar.com",
+    "type": "publication",
+    "priority": "high",
+    "action": "Pitch guest post",
+    "title": "Philstar.com | Latest Philippine news and multimedia",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Philstar.com | Latest Philippine news and multimedia, Contact form: Yes"
+  },
+  {
     "domain": "ph.news.yahoo.com",
     "type": "publication",
     "priority": "high",
@@ -410,6 +538,33 @@
     "notes": "Title: Tech in Asia - Connecting Asia's startup ecosystem, Contact form: Yes"
   },
   {
+    "domain": "hardwarezone.com.sg",
+    "type": "tech_blog",
+    "priority": "medium",
+    "action": "Pitch guest post or collaboration",
+    "title": "Technology News, Products &amp; Gadgets Reviews, Latest Tech Updates | HardwareZone Singapore",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "resource_page",
+        "description": "Potential resource page for office software",
+        "priority": "high"
+      },
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Technology News, Products &amp; Gadgets Reviews, Latest Tech Updates | HardwareZone Singapore, Contact form: Yes"
+  },
+  {
     "domain": "soyacincau.com",
     "type": "tech_blog",
     "priority": "medium",
@@ -425,6 +580,38 @@
       }
     ],
     "notes": "Title: SoyaCincau, Contact form: Yes"
+  },
+  {
+    "domain": "techgoondu.com",
+    "type": "tech_blog",
+    "priority": "medium",
+    "action": "Pitch guest post or collaboration",
+    "title": "Home - Techgoondu",
+    "hasContactForm": true,
+    "emails": [
+      "contact@techgoondu.com",
+      "GLT-EVP-APAC-Wendy-Johnstone@2x-1-420x280.png",
+      "GLT-EVP-APAC-Wendy-Johnstone@2x-1.png",
+      "GLT-EVP-APAC-Wendy-Johnstone@2x-1-600x684.png"
+    ],
+    "opportunities": [
+      {
+        "type": "resource_page",
+        "description": "Potential resource page for office software",
+        "priority": "high"
+      },
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      },
+      {
+        "type": "partnership",
+        "description": "Partnership opportunity",
+        "priority": "medium"
+      }
+    ],
+    "notes": "Title: Home - Techgoondu, Contact form: Yes"
   },
   {
     "domain": "lowyat.net",
@@ -498,5 +685,22 @@
       }
     ],
     "notes": "Title: GMA Network | News and Entertainment, Contact form: Yes"
+  },
+  {
+    "domain": "techinasia.com",
+    "type": "tech_blog",
+    "priority": "medium",
+    "action": "Pitch guest post or collaboration",
+    "title": "Tech in Asia - Connecting Asia's startup ecosystem",
+    "hasContactForm": true,
+    "emails": [],
+    "opportunities": [
+      {
+        "type": "guest_posting",
+        "description": "Guest posting opportunity",
+        "priority": "high"
+      }
+    ],
+    "notes": "Title: Tech in Asia - Connecting Asia's startup ecosystem, Contact form: Yes"
   }
 ]

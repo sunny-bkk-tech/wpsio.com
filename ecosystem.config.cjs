@@ -64,6 +64,21 @@ module.exports = {
       out_file: 'logs/build-deploy-out.log',
       error_file: 'logs/build-deploy-error.log',
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
+    },
+    {
+      name: 'pm2-monitor',
+      script: 'scripts/pm2-email-listener.js',
+      instances: 1,
+      autorestart: true,
+      watch: false,
+      max_memory_restart: '200M',
+      env: {
+        NODE_ENV: 'production'
+      },
+      log_file: 'logs/pm2-monitor.log',
+      out_file: 'logs/pm2-monitor-out.log',
+      error_file: 'logs/pm2-monitor-error.log',
+      log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
     }
   ]
 };

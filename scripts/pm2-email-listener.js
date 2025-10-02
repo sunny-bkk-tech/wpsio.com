@@ -1,7 +1,10 @@
-import pm2 from "pm2";
 import { exec } from "child_process";
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+const pm2 = require('pm2');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -19,7 +22,7 @@ pm2.connect(function(err) {
       return;
     }
 
-    console.log('PM2 Bus launched');
+    console.log('PM2 Bus launched - monitoring for process exits...');
 
     bus.on('process:event', function(data) {
       if (data.event === 'exit') {
@@ -36,6 +39,8 @@ pm2.connect(function(err) {
               return;
             }
             console.log(`Notification sent for ${data.process.name}`);
+            if (stdout) console.log(stdout);
+            if (stderr) console.error(stderr);
           }
         );
       }
@@ -45,6 +50,13 @@ pm2.connect(function(err) {
 
 // Handle graceful shutdown
 process.on('SIGINT', function() {
+  console.log('Shutting down PM2 email listener...');
+  pm2.disconnect();
+  process.exit();
+});
+
+process.on('SIGTERM', function() {
+  console.log('Shutting down PM2 email listener...');
   pm2.disconnect();
   process.exit();
 });

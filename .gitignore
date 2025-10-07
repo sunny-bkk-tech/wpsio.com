@@ -25,3 +25,4 @@ visitor_logs.jsonl
 *.sw?
 .env
 reports/*
+reports

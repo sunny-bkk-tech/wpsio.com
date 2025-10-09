@@ -4,8 +4,12 @@ import { useSEO } from '../utils/useSEO';
 
 const Support: React.FC = () => {
   useSEO({
-    title: '技術支援 - WPS Office',
-    description: '獲取 WPS Office 使用幫助、常見問題解答與技術支援，快速解決安裝、啟用、功能使用等問題。'
+    title: 'WPS Office帮助中心 - 使用教程/常见问题/技术支持',
+    description: 'WPS Office官方帮助中心，提供详细使用教程、常见问题解答、技术支持服务。快速解决安装激活、文档编辑、格式转换、云同步等问题。7×24小时在线客服，让您无忧使用WPS！',
+    robots: 'index,follow',
+    image: 'https://www.wpsio.com/vite.svg',
+    canonical: 'https://www.wpsio.com/support',
+    locale: 'zh_CN'
   });
 
   return (

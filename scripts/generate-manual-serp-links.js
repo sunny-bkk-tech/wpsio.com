@@ -8,6 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const keywordsPath = path.resolve(__dirname, 'serp_keywords.json');
+const regionsPath = path.resolve(__dirname, 'serp_regions.json');
 const outDir = path.resolve(process.cwd(), 'reports/serp');
 const latestCsv = path.join(outDir, 'manual_serp_links.csv');
 const manifestPath = path.join(outDir, 'manifest.json');
@@ -26,24 +27,79 @@ function enc(q) {
   return encodeURIComponent(q);
 }
 
-function gLinkCN(q) {
-  return `https://www.google.com/search?q=${enc(q)}&hl=zh-CN&pws=0&uule=`; // neutral-ish
+// Load regions configuration
+let regionsConfig;
+try {
+  regionsConfig = JSON.parse(fs.readFileSync(regionsPath, 'utf8'));
+} catch (err) {
+  console.warn('⚠️  Could not load serp_regions.json, using default regions');
+  regionsConfig = {
+    regions: [
+      { name: 'China Mainland', code: 'CN', google_hl: 'zh-CN', google_gl: 'cn', uule: '' },
+      { name: 'Taiwan', code: 'TW', google_hl: 'zh-TW', google_gl: 'tw', uule: '' },
+      { name: 'Hong Kong', code: 'HK', google_hl: 'zh-HK', google_gl: 'hk', uule: '' },
+      { name: 'Singapore', code: 'SG', google_hl: 'zh-CN', google_gl: 'sg', uule: 'w+CAIQICIJU2luZ2Fwb3Jl' }
+    ],
+    monitoring_config: {
+      default_regions: ['CN', 'TW', 'HK', 'SG']
+    }
+  };
 }
 
-function gLinkTW(q) {
-  return `https://www.google.com/search?q=${enc(q)}&hl=zh-TW&pws=0&uule=`;
+// Get active regions (use default_regions from config or all regions)
+const activeRegionCodes = regionsConfig.monitoring_config?.default_regions || 
+                          regionsConfig.regions.map(r => r.code);
+const activeRegions = regionsConfig.regions.filter(r => activeRegionCodes.includes(r.code));
+
+// Generate Google search link for a region
+function generateGoogleLink(keyword, region) {
+  const params = new URLSearchParams({
+    q: keyword,
+    hl: region.google_hl,
+    gl: region.google_gl,
+    pws: '0'
+  });
+  
+  if (region.uule) {
+    params.set('uule', region.uule);
+  }
+  
+  return `https://www.google.com/search?${params.toString()}`;
 }
 
-function bLinkHK(q) {
-  return `https://www.bing.com/search?q=${enc(q)}&setlang=zh-HK`;
+// Generate Bing search link
+function generateBingLink(keyword, lang = 'zh-CN') {
+  return `https://www.bing.com/search?q=${enc(keyword)}&setlang=${lang}`;
 }
 
 const keywords = JSON.parse(fs.readFileSync(keywordsPath, 'utf8'));
 const generatedAt = new Date();
-const rows = [['Report Generated:', generatedAt.toLocaleString()] ,['keyword', 'google_zhCN', 'google_zhTW', 'bing_zhHK']];
 
+// Build CSV header
+const header = ['keyword'];
+for (const region of activeRegions) {
+  header.push(`google_${region.code}_${region.google_hl.replace('-', '')}`);
+}
+header.push('bing_zhCN');
+
+const rows = [
+  ['Report Generated:', generatedAt.toLocaleString()],
+  header
+];
+
+// Build CSV rows
 for (const kw of keywords) {
-  rows.push([kw, gLinkCN(kw), gLinkTW(kw), bLinkHK(kw)]);
+  const row = [kw];
+  
+  // Add Google links for each region
+  for (const region of activeRegions) {
+    row.push(generateGoogleLink(kw, region));
+  }
+  
+  // Add Bing link
+  row.push(generateBingLink(kw));
+  
+  rows.push(row);
 }
 
 fs.mkdirSync(outDir, { recursive: true });
@@ -52,6 +108,7 @@ const csv = rows.map(r => r.map(v => String(v).includes(',') ? `"${String(v).rep
 // 1) Write timestamped file to preserve history
 const stampedName = `manual_serp_links-${tsName(generatedAt)}.csv`;
 const stampedCsvPath = path.join(outDir, stampedName);
+
 // Proactively remove older stamped files from the same calendar day to avoid duplicates
 try {
   const ymd = tsName(generatedAt).split('-')[0];
@@ -63,6 +120,7 @@ try {
     }
   }
 } catch {}
+
 fs.writeFileSync(stampedCsvPath, csv, 'utf8');
 
 // 2) Also write/update the latest pointer file for backward compatibility
@@ -72,15 +130,21 @@ fs.writeFileSync(latestCsv, csv, 'utf8');
 const wantsApi = process.argv.includes('--with-api');
 const apiKey = process.env.SERPAPI_KEY || '';
 
-async function fetchGoogleSerpTop(keyword) {
-  const params = new URLSearchParams({
+async function fetchGoogleSerpTop(keyword, region) {
+  const params = {
     engine: 'google',
     q: keyword,
-    hl: 'zh-CN',
+    hl: region.google_hl,
+    gl: region.google_gl,
     num: '10',
     api_key: apiKey
-  });
-  const url = `https://serpapi.com/search.json?${params.toString()}`;
+  };
+  
+  if (region.uule) {
+    params.uule = region.uule;
+  }
+  
+  const url = `https://serpapi.com/search.json?${new URLSearchParams(params).toString()}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(`SERPAPI HTTP ${res.status}`);
   const data = await res.json();
@@ -96,26 +160,42 @@ async function fetchGoogleSerpTop(keyword) {
 let stampedJsonName = '';
 if (wantsApi && apiKey) {
   try {
-    const payload = { generatedAt: generatedAt.toISOString(), engine: 'google', keywords: [] };
+    const payload = { 
+      generatedAt: generatedAt.toISOString(), 
+      engine: 'google', 
+      regions: activeRegions.map(r => ({ code: r.code, name: r.name })),
+      keywords: [] 
+    };
+    
     for (const kw of keywords) {
-      try {
-        const results = await fetchGoogleSerpTop(kw);
-        payload.keywords.push({ keyword: kw, results });
-      } catch (err) {
-        payload.keywords.push({ keyword: kw, error: String(err) });
+      const kwData = { keyword: kw, regions: {} };
+      
+      for (const region of activeRegions) {
+        try {
+          const results = await fetchGoogleSerpTop(kw, region);
+          kwData.regions[region.code] = results;
+          // Small delay to avoid rate limiting
+          await new Promise(resolve => setTimeout(resolve, 500));
+        } catch (err) {
+          kwData.regions[region.code] = { error: String(err) };
+        }
       }
+      
+      payload.keywords.push(kwData);
     }
+    
     stampedJsonName = `manual_serp_links-${tsName(generatedAt)}.json`;
     const stampedJsonPath = path.join(outDir, stampedJsonName);
     fs.writeFileSync(stampedJsonPath, JSON.stringify(payload, null, 2), 'utf8');
+    
     // latest pointer for JSON as well
     fs.writeFileSync(path.join(outDir, 'manual_serp_links.json'), JSON.stringify(payload, null, 2), 'utf8');
-    console.log(`Wrote ${stampedJsonPath}`);
+    console.log(`✅ Wrote API results: ${stampedJsonPath}`);
   } catch (e) {
-    console.warn('SERP API fetch skipped or failed:', e);
+    console.warn('⚠️  SERP API fetch skipped or failed:', e.message);
   }
 } else if (wantsApi && !apiKey) {
-  console.warn('SERP API requested with --with-api but SERPAPI_KEY not set; skipping.');
+  console.warn('⚠️  SERP API requested with --with-api but SERPAPI_KEY not set; skipping.');
 }
 
 // 4) Update manifest.json
@@ -128,7 +208,13 @@ if (fs.existsSync(manifestPath)) {
 
 // Add/replace current entry
 const iso = generatedAt.toISOString();
-const entry = { file: stampedName, generatedAt: iso, json: stampedJsonName || undefined };
+const entry = { 
+  file: stampedName, 
+  generatedAt: iso, 
+  json: stampedJsonName || undefined,
+  regions: activeRegions.map(r => r.code),
+  keywordCount: keywords.length
+};
 const byFile = new Map(manifest.reports.map(r => [r.file, r]));
 byFile.set(entry.file, entry);
 manifest.reports = Array.from(byFile.values())
@@ -136,9 +222,12 @@ manifest.reports = Array.from(byFile.values())
 
 fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
 
-console.log(`Wrote ${stampedCsvPath}`);
-console.log(`Updated latest at ${latestCsv}`);
-console.log(`Updated manifest at ${manifestPath}`);
+console.log(`✅ Generated SERP links report`);
+console.log(`   📊 Keywords: ${keywords.length}`);
+console.log(`   🌍 Regions: ${activeRegions.map(r => r.code).join(', ')}`);
+console.log(`   📁 CSV: ${stampedCsvPath}`);
+console.log(`   📁 Latest: ${latestCsv}`);
+console.log(`   📋 Manifest: ${manifestPath}`);
 
 // Copy reports to dist directory if it exists (for production serving)
 const distReportsDir = path.resolve(process.cwd(), 'dist/reports/serp');

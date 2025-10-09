@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Download from './pages/Download';
@@ -80,6 +80,13 @@ const AppContent = () => {
       <Route path="/serp-report" element={<SerpReport />} />
       <Route path="/backlink-report" element={<BacklinkReport />} />
       <Route path="/logs" element={<LogViewer />} />
+      
+      {/* Redirect deprecated/non-existent routes to home */}
+      <Route path="/wpsdocs" element={<Navigate to="/" replace />} />
+      <Route path="/wpsdocs/*" element={<Navigate to="/" replace />} />
+      
+      {/* Catch-all: redirect any other unknown routes to home */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

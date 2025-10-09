@@ -4,10 +4,33 @@ import { useSEO } from '../utils/useSEO';
 
 const Pricing: React.FC = () => {
   useSEO({
-    title: 'WPS Office 定價 - 選擇最適合您的方案',
-    description: '比較 WPS Office 的各項方案與功能，選擇符合個人、團隊或企業需求的訂閱選項。',
+    title: 'WPS Office价格方案 - 个人版/专业版/企业版套餐对比',
+    description: 'WPS Office提供免费个人版、专业版、企业版多种套餐方案。对比各版本功能差异，选择最适合您的订阅计划。支持月付/年付，企业批量采购享优惠。立即查看详细价格！',
     robots: 'index,follow',
-    image: 'https://www.wpsio.com/vite.svg'
+    image: 'https://www.wpsio.com/vite.svg',
+    canonical: 'https://www.wpsio.com/pricing',
+    locale: 'zh_CN',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: 'WPS Office',
+      description: 'WPS Office办公软件套餐',
+      offers: [
+        {
+          '@type': 'Offer',
+          name: '个人免费版',
+          price: '0',
+          priceCurrency: 'CNY'
+        },
+        {
+          '@type': 'Offer',
+          name: '专业版',
+          price: '89',
+          priceCurrency: 'CNY',
+          priceValidUntil: '2025-12-31'
+        }
+      ]
+    }
   });
 
   return (

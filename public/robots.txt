@@ -2,7 +2,9 @@
 User-agent: *
 Allow: /
 
-# Disallow specific build artifacts or private paths if any (none currently)
+# Disallow non-existent or deprecated paths
+Disallow: /wpsdocs
+Disallow: /wpsdocs/
 
 Sitemap: https://www.wpsio.com/sitemap.xml
 

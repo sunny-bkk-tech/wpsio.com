@@ -86,7 +86,7 @@ export function useSEO(options: UseSEOOptions) {
     canonical,
     robots,
     url,
-    siteName = 'WPS-IO Office',
+    siteName = 'WPS Office',
     locale,
     ogType = 'website',
     image,

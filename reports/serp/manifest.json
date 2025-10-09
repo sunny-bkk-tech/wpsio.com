@@ -1,6 +1,22 @@
 {
   "reports": [
     {
+      "file": "manual_serp_links-20251009-164445.csv",
+      "generatedAt": "2025-10-09T09:44:45.763Z",
+      "regions": [
+        "CN",
+        "SG",
+        "MY",
+        "TH",
+        "ID",
+        "VN",
+        "PH",
+        "AE",
+        "SA"
+      ],
+      "keywordCount": 263
+    },
+    {
       "file": "manual_serp_links-20251002-144306.csv",
       "generatedAt": "2025-10-02T14:43:06.000Z"
     },

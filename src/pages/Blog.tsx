@@ -41,7 +41,7 @@ const Blog: React.FC = () => {
         inLanguage: 'zh-CN',
         publisher: {
           '@type': 'Organization',
-          name: 'WPS-IO Office',
+          name: 'WPS Office',
           url: 'https://www.wpsio.com',
           logo: {
             '@type': 'ImageObject',

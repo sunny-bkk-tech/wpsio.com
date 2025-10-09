@@ -154,7 +154,7 @@ const Templates: React.FC = () => {
         inLanguage: 'zh-CN',
         publisher: {
           '@type': 'Organization',
-          name: 'WPS-IO Office',
+          name: 'WPS Office',
           url: 'https://www.wpsio.com'
         },
         mainEntity: {

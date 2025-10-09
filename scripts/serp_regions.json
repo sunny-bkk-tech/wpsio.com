@@ -1,0 +1,222 @@
+{
+  "regions": [
+    {
+      "name": "China Mainland",
+      "code": "CN",
+      "google_hl": "zh-CN",
+      "google_gl": "cn",
+      "uule": "",
+      "description": "Simplified Chinese, Mainland China",
+      "priority": 1,
+      "category": "Greater China"
+    },
+    {
+      "name": "Singapore",
+      "code": "SG",
+      "google_hl": "zh-CN",
+      "google_gl": "sg",
+      "uule": "w+CAIQICIJU2luZ2Fwb3Jl",
+      "description": "Singapore - Chinese community",
+      "priority": 2,
+      "category": "Southeast Asia"
+    },
+    {
+      "name": "Malaysia",
+      "code": "MY",
+      "google_hl": "zh-CN",
+      "google_gl": "my",
+      "uule": "w+CAIQICIKTWFMYXLZAWE=",
+      "description": "Malaysia - Chinese community",
+      "priority": 3,
+      "category": "Southeast Asia"
+    },
+    {
+      "name": "Thailand",
+      "code": "TH",
+      "google_hl": "zh-CN",
+      "google_gl": "th",
+      "uule": "w+CAIQICIIVGhhaWxhbmQ=",
+      "description": "Thailand - Chinese community",
+      "priority": 4,
+      "category": "Southeast Asia"
+    },
+    {
+      "name": "Indonesia",
+      "code": "ID",
+      "google_hl": "zh-CN",
+      "google_gl": "id",
+      "uule": "w+CAIQICIJSW5kb25lc2lh",
+      "description": "Indonesia - Chinese community",
+      "priority": 5,
+      "category": "Southeast Asia"
+    },
+    {
+      "name": "Vietnam",
+      "code": "VN",
+      "google_hl": "zh-CN",
+      "google_gl": "vn",
+      "uule": "w+CAIQICIHVmlldG5hbQ==",
+      "description": "Vietnam - Chinese community",
+      "priority": 6,
+      "category": "Southeast Asia"
+    },
+    {
+      "name": "Philippines",
+      "code": "PH",
+      "google_hl": "zh-CN",
+      "google_gl": "ph",
+      "uule": "w+CAIQICILUGhpbGlwcGluZXM=",
+      "description": "Philippines - Chinese community",
+      "priority": 7,
+      "category": "Southeast Asia"
+    },
+    {
+      "name": "UAE (Dubai)",
+      "code": "AE",
+      "google_hl": "zh-CN",
+      "google_gl": "ae",
+      "uule": "w+CAIQICIDU2hhcmphaCwgVUFF",
+      "description": "United Arab Emirates - Dubai, Sharjah, Abu Dhabi",
+      "priority": 8,
+      "category": "Gulf Countries"
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "SA",
+      "google_hl": "zh-CN",
+      "google_gl": "sa",
+      "uule": "w+CAIQICINUml5YWRoLCBTYXVkaQ==",
+      "description": "Saudi Arabia - Riyadh, Jeddah",
+      "priority": 9,
+      "category": "Gulf Countries"
+    },
+    {
+      "name": "Qatar",
+      "code": "QA",
+      "google_hl": "zh-CN",
+      "google_gl": "qa",
+      "uule": "w+CAIQICIFUXVhdGFy",
+      "description": "Qatar - Doha",
+      "priority": 10,
+      "category": "Gulf Countries"
+    },
+    {
+      "name": "Kuwait",
+      "code": "KW",
+      "google_hl": "zh-CN",
+      "google_gl": "kw",
+      "uule": "w+CAIQICIGS3V3YWl0",
+      "description": "Kuwait",
+      "priority": 11,
+      "category": "Gulf Countries"
+    },
+    {
+      "name": "Oman",
+      "code": "OM",
+      "google_hl": "zh-CN",
+      "google_gl": "om",
+      "uule": "w+CAIQICIETXVzY2F0",
+      "description": "Oman - Muscat",
+      "priority": 12,
+      "category": "Gulf Countries"
+    },
+    {
+      "name": "Bahrain",
+      "code": "BH",
+      "google_hl": "zh-CN",
+      "google_gl": "bh",
+      "uule": "w+CAIQICIHQmFocmFpbg==",
+      "description": "Bahrain",
+      "priority": 13,
+      "category": "Gulf Countries"
+    },
+    {
+      "name": "Taiwan",
+      "code": "TW",
+      "google_hl": "zh-TW",
+      "google_gl": "tw",
+      "uule": "",
+      "description": "Traditional Chinese, Taiwan",
+      "priority": 14,
+      "category": "Greater China"
+    },
+    {
+      "name": "Hong Kong",
+      "code": "HK",
+      "google_hl": "zh-HK",
+      "google_gl": "hk",
+      "uule": "",
+      "description": "Traditional Chinese, Hong Kong",
+      "priority": 15,
+      "category": "Greater China"
+    }
+  ],
+  "search_engines": {
+    "google": {
+      "enabled": true,
+      "base_url": "https://www.google.com/search",
+      "api_url": "https://serpapi.com/search.json"
+    },
+    "bing": {
+      "enabled": true,
+      "base_url": "https://www.bing.com/search"
+    },
+    "baidu": {
+      "enabled": false,
+      "base_url": "https://www.baidu.com/s",
+      "note": "Only relevant for China mainland"
+    }
+  },
+  "monitoring_config": {
+    "default_regions": [
+      "CN",
+      "SG",
+      "MY",
+      "TH",
+      "ID",
+      "VN",
+      "PH",
+      "AE",
+      "SA"
+    ],
+    "priority_regions": [
+      "CN",
+      "SG",
+      "MY",
+      "AE"
+    ],
+    "results_per_page": 10,
+    "check_frequency": "daily",
+    "track_rank_changes": true,
+    "alert_on_rank_drop": 10
+  },
+  "region_groups": {
+    "Southeast Asia": [
+      "SG",
+      "MY",
+      "TH",
+      "ID",
+      "VN",
+      "PH"
+    ],
+    "Gulf Countries": [
+      "AE",
+      "SA",
+      "QA",
+      "KW",
+      "OM",
+      "BH"
+    ],
+    "Greater China": [
+      "CN",
+      "TW",
+      "HK"
+    ]
+  },
+  "notes": {
+    "uule_encoding": "UULE (User Location Encoding) provides precise geolocation for Google searches",
+    "language_targeting": "Using zh-CN (Simplified) for most regions as it's more widely used in business contexts",
+    "traditional_chinese": "TW and HK use zh-TW and zh-HK for Traditional Chinese speakers",
+    "priority_markets": "China, Singapore, Malaysia, and UAE are the highest priority markets"
+  }
+}

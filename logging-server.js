@@ -15,7 +15,7 @@ const LOG_FILE_PATH = path.join(__dirname, 'visitor_logs.jsonl');
 const app = express();
 const PORT = process.env.PORT || 8080; // Use the main application port
 
-// Configure pino with basic console logging
+// Configure pino with file output
 const logger = pino({
   level: 'info',
   timestamp: pino.stdTimeFunctions.isoTime,
@@ -24,14 +24,18 @@ const logger = pino({
       return { level: label };
     },
   },
-});
+}, pino.destination({
+  dest: LOG_FILE_PATH,
+  sync: false, // Async writes for better performance
+  mkdir: true
+}));
 
 // Middleware setup
 app.set('trust proxy', 1); // Trust the first proxy in front of the app (e.g., Nginx)
 app.use(cors());
 app.use(express.json());
 
-// API endpoint to get all logs
+// API endpoint to get all logs (visitor logs only, filter out server startup logs)
 app.get('/api/logs', (req, res) => {
   fs.readFile(LOG_FILE_PATH, 'utf8', (err, data) => {
     if (err) {
@@ -39,12 +43,24 @@ app.get('/api/logs', (req, res) => {
         // If the file doesn't exist yet, return an empty array
         return res.json([]);
       }
-      logger.error(err, 'Failed to read log file');
+      console.error('Failed to read log file:', err);
       return res.status(500).send({ error: 'Failed to read logs' });
     }
     // The file is a series of JSON objects, one per line (JSONL format)
-    const logs = data.trim().split('\n').map(line => JSON.parse(line));
-    res.json(logs.reverse()); // Show newest logs first
+    const allLogs = data.trim().split('\n').filter(line => line).map(line => {
+      try {
+        return JSON.parse(line);
+      } catch (e) {
+        return null;
+      }
+    }).filter(log => log !== null);
+    
+    // Filter to only show visitor logs (those with 'event' field or 'path' starting with /)
+    const visitorLogs = allLogs.filter(log => 
+      log.event === 'page_view' || (log.path && !log.msg?.includes('Server started'))
+    );
+    
+    res.json(visitorLogs.reverse()); // Show newest logs first
   });
 });
 
@@ -54,6 +70,11 @@ app.post('/api/log', (req, res) => {
   // Use req.ip which is more reliable behind a proxy when 'trust proxy' is set
   let ip = req.ip; 
   
+  // For testing: allow X-Forwarded-For header to simulate different IPs
+  if (req.headers['x-forwarded-for']) {
+    ip = req.headers['x-forwarded-for'].split(',')[0].trim();
+  }
+  
   // Clean IPv6-mapped IPv4 addresses (remove ::ffff: prefix)
   if (ip && ip.startsWith('::ffff:')) {
     ip = ip.substring(7);
@@ -62,11 +83,14 @@ app.post('/api/log', (req, res) => {
   // Look up country from IP address
   const geo = geoip.lookup(ip);
   
+  // Get country code from geo lookup, or 'Unknown' if not found
   const country = geo ? geo.country : 'Unknown';
   
   const logData = { 
     ip, 
     country,
+    city: geo?.city || '',
+    region: geo?.region || '',
     ...req.body 
   };
   logger.info(logData, `Page View: ${logData.path} from ${country}`);
@@ -92,6 +116,10 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  logger.info(`Server started on http://localhost:${PORT}. Serving files from ${buildPath}`);
+  const startupMsg = `Server started on http://localhost:${PORT}. Serving files from ${buildPath}`;
+  logger.info(startupMsg);
+  console.log(`✓ ${startupMsg}`);
+  console.log(`✓ Visitor logs: ${LOG_FILE_PATH}`);
+  console.log(`✓ Log viewer: http://localhost:${PORT}/logs`);
 });
 

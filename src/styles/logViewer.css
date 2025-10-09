@@ -1,6 +1,6 @@
 /* Styles for the Log Viewer page */
 .log-viewer-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
   padding-top: 6rem; /* Adjust for fixed header */
@@ -9,18 +9,60 @@
 }
 
 .log-viewer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 1.5rem;
   border-bottom: 2px solid #eee;
   padding-bottom: 1rem;
 }
 
 .log-viewer-header h1 {
-  margin: 0;
+  margin: 0 0 1rem 0;
   font-size: 2rem;
   color: #2c3e50;
+}
+
+.log-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.log-stats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.log-count {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.last-update {
+  color: #7f8c8d;
+}
+
+.log-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.auto-refresh-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.auto-refresh-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
 
 .refresh-button {
@@ -90,10 +132,62 @@
 }
 
 .country-cell {
-  font-weight: 500;
-  color: #dc3545;
   text-align: center;
-  min-width: 80px;
+  min-width: 100px;
+}
+
+.country-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #90caf9;
+}
+
+.country-badge.country-us,
+.country-badge.country-gb {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-color: #81c784;
+}
+
+.country-badge.country-cn,
+.country-badge.country-in {
+  background-color: #fff3e0;
+  color: #e65100;
+  border-color: #ffb74d;
+}
+
+.country-badge.country-ae,
+.country-badge.country-sa,
+.country-badge.country-qa {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+  border-color: #ba68c8;
+}
+
+.country-badge.country-sg,
+.country-badge.country-my {
+  background-color: #fce4ec;
+  color: #c2185b;
+  border-color: #f06292;
+}
+
+.city-cell {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.new-log {
+  animation: highlight 2s ease;
+}
+
+@keyframes highlight {
+  0% { background-color: #fff9c4; }
+  100% { background-color: transparent; }
 }
 
 .loading-container, .error-container {

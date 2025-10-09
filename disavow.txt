@@ -1,0 +1,16 @@
+# Disavow file for wpsio.com
+# Updated: 2025-10-09
+# Reason: Low-quality PBN and spam links that could harm rankings
+
+# PBN (Private Blog Network) Links
+domain:drjack.world
+domain:sunnyside-pbn-domains.club
+
+# Link Farms and Spam Services
+domain:anchorurl.cloud
+domain:boost-your-site-with-homepage-backlinks.us
+domain:toplikevideo.com
+
+# Domain Seller Spam
+domain:dzj.me
+

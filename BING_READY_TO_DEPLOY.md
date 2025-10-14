@@ -14,7 +14,7 @@
 |-----------|--------|----------|-------|
 | **BingSiteAuth.xml** | ✅ Created | `/public/BingSiteAuth.xml` | XML verification file |
 | **Meta Tag** | ✅ Added | `index.html` line 10 | Backup verification method |
-| **Verification Code** | ✅ Set | `FBDB405E5D8063B576889B105B2823B7` | From Bing Webmaster Tools |
+| **Verification Code** | ✅ Set | `BCE413C5893EEDF535E1789E6CB31022` | From Bing Webmaster Tools |
 
 ### ✅ Schema Markup (COMPLETE)
 

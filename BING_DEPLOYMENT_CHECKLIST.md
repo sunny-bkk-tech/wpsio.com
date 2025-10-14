@@ -1,7 +1,7 @@
 # 🚀 Bing Webmaster Tools - Deployment Checklist
 
 **Site:** https://www.wpsio.com  
-**Verification Code:** `FBDB405E5D8063B576889B105B2823B7`  
+**Verification Code:** `BCE413C5893EEDF535E1789E6CB31022`  
 **Status:** ✅ Ready to Deploy and Verify
 
 ---
@@ -13,11 +13,11 @@
 ✅ **BingSiteAuth.xml** - XML verification file
    - Location: `/public/BingSiteAuth.xml` ✅
    - Will be accessible at: `https://www.wpsio.com/BingSiteAuth.xml`
-   - Verification code: `FBDB405E5D8063B576889B105B2823B7`
+   - Verification code: `BCE413C5893EEDF535E1789E6CB31022`
 
 ✅ **Meta Tag** - Added to index.html (line 10)
    ```html
-   <meta name="msvalidate.01" content="FBDB405E5D8063B576889B105B2823B7" />
+   <meta name="msvalidate.01" content="BCE413C5893EEDF535E1789E6CB31022" />
    ```
 
 ### 2. Schema Markup Ready
@@ -84,7 +84,7 @@ Deploy using your standard deployment method. After deployment, verify the files
    https://www.wpsio.com
    ```
    **Action:** View Page Source (Ctrl+U / Cmd+U)
-   **Expected:** Find `<meta name="msvalidate.01" content="FBDB405E5D8063B576889B105B2823B7" />`
+   **Expected:** Find `<meta name="msvalidate.01" content="BCE413C5893EEDF535E1789E6CB31022" />`
 
 ---
 

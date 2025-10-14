@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2025-10-14T07:10:04.774Z",
+  "generatedAt": "2025-10-14T08:09:37.767Z",
   "summary": {
-    "total": 35,
+    "total": 36,
     "byCountry": {
       "thailand": 5,
       "singapore": 7,
@@ -9,20 +9,21 @@
       "vietnam": 7,
       "philippines": 3,
       "publication": 6,
-      "indonesia": 1
+      "indonesia": 1,
+      "laos": 1
     },
     "byType": {
       "platform": 1,
       "directory": 11,
-      "publication": 22,
+      "publication": 23,
       "tech_blog": 1
     },
     "byQuality": {
-      "high": 34,
+      "high": 35,
       "medium": 1
     },
     "bySource": {
-      "country_domain": 29,
+      "country_domain": 30,
       "news_publication": 6
     }
   },
@@ -480,6 +481,19 @@
       "dateAdded": "2025-10-02",
       "status": "active",
       "seaCountry": "singapore",
+      "seaType": "country_domain"
+    },
+    {
+      "id": "1760429210277",
+      "url": "https://malaymail.com",
+      "domain": "malaymail.com",
+      "anchor": "",
+      "type": "publication",
+      "quality": "high",
+      "notes": "Pitch guest post: Title: Malay Mail | Breaking News, Malaysia, World, Lifestyle News, Contact form: Yes",
+      "dateAdded": "2025-10-14",
+      "status": "active",
+      "seaCountry": "laos",
       "seaType": "country_domain"
     }
   ],

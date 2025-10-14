@@ -505,6 +505,17 @@
       "notes": "Submit business listing: Title: Sorensen Gross | Setting a Higher Standard in Construction, Contact form: Yes",
       "dateAdded": "2025-10-02",
       "status": "active"
+    },
+    {
+      "id": "1760429210277",
+      "url": "https://malaymail.com",
+      "domain": "malaymail.com",
+      "anchor": "",
+      "type": "publication",
+      "quality": "high",
+      "notes": "Pitch guest post: Title: Malay Mail | Breaking News, Malaysia, World, Lifestyle News, Contact form: Yes",
+      "dateAdded": "2025-10-14",
+      "status": "active"
     }
   ],
   "dailyStats": {
@@ -549,6 +560,15 @@
       },
       "byQuality": {
         "high": 2
+      }
+    },
+    "2025-10-14": {
+      "total": 1,
+      "byType": {
+        "publication": 1
+      },
+      "byQuality": {
+        "high": 1
       }
     }
   }

@@ -51,17 +51,27 @@ const SEODashboard: React.FC = () => {
         },
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to run SEO check');
+        // Handle 503 (check in progress) gracefully
+        if (response.status === 503) {
+          setError(result.message || '检查进行中，请稍后重试...');
+          // Auto-retry after 5 seconds
+          setTimeout(() => {
+            runSEOCheck();
+          }, 5000);
+          return;
+        }
+        throw new Error(result.message || 'Failed to run SEO check');
       }
 
-      const result = await response.json();
       setCurrentResult(result);
       
       // Add to historical results
       setHistoricalResults(prev => [result, ...prev].slice(0, 10));
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error occurred');
+      setError(err instanceof Error ? err.message : '检查失败，请重试');
     } finally {
       setIsChecking(false);
     }

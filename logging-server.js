@@ -104,44 +104,78 @@ app.post('/api/run-seo-check', async (req, res) => {
   const reportPath = path.join(logsDir, `seo-report-${today}.json`);
   
   try {
-    const { execSync } = await import('child_process');
-    const seoCheckPath = path.join(__dirname, 'scripts', 'seo-daily-check.cjs');
-    
-    // Run the SEO check script
-    // Note: Script exits with code 1 when checks fail, which is expected behavior
-    try {
-      execSync(`node "${seoCheckPath}"`, {
-        encoding: 'utf8',
-        cwd: __dirname,
-        timeout: 30000 // 30 second timeout
-      });
-    } catch (execError) {
-      // Script ran but exited with non-zero code (checks failed)
-      // This is normal - the report file should still be generated
-      console.log('SEO check completed with issues detected (expected behavior)');
+    // First, check if we have a recent report (within last 5 minutes)
+    if (fs.existsSync(reportPath)) {
+      const stats = fs.statSync(reportPath);
+      const fileAge = Date.now() - stats.mtimeMs;
+      const fiveMinutes = 5 * 60 * 1000;
+      
+      // If report is less than 5 minutes old, return it immediately
+      if (fileAge < fiveMinutes) {
+        const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+        console.log('Returning cached SEO report (less than 5 minutes old)');
+        return res.json(reportData);
+      }
     }
     
-    // Read the report file (should exist whether checks passed or failed)
+    // Run check in background with shorter timeout
+    const { exec } = await import('child_process');
+    const seoCheckPath = path.join(__dirname, 'scripts', 'seo-daily-check.cjs');
+    
+    // Start the check but don't wait for it to complete if it's slow
+    const checkProcess = exec(`node "${seoCheckPath}"`, {
+      cwd: __dirname,
+      timeout: 15000 // 15 second timeout
+    });
+    
+    // Wait with a promise that has its own timeout
+    const checkPromise = new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        checkProcess.kill();
+        reject(new Error('Check timeout'));
+      }, 15000);
+      
+      checkProcess.on('close', (code) => {
+        clearTimeout(timeout);
+        resolve(code);
+      });
+      
+      checkProcess.on('error', (err) => {
+        clearTimeout(timeout);
+        reject(err);
+      });
+    });
+    
+    try {
+      await checkPromise;
+    } catch (execError) {
+      // Check timed out or failed - try to read existing report
+      console.log('SEO check timed out or failed, reading existing report if available');
+    }
+    
+    // Read the report file (should exist whether check completed or not)
     if (fs.existsSync(reportPath)) {
       const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
       return res.json(reportData);
     } else {
-      return res.status(500).json({ 
-        error: 'Report file not generated',
-        details: 'SEO check ran but did not create a report file'
+      return res.status(503).json({ 
+        error: 'SEO check in progress',
+        message: 'First-time check is running. Please try again in 30 seconds.',
+        details: 'Report file not yet generated'
       });
     }
   } catch (error) {
     console.error('SEO check error:', error.message);
     
-    // Last resort: try to read the report even if something went wrong
+    // Last resort: try to read any existing report
     if (fs.existsSync(reportPath)) {
       const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
       return res.json(reportData);
     }
     
-    res.status(500).json({ 
-      error: 'Failed to run SEO check', 
+    res.status(503).json({ 
+      error: 'SEO check unavailable', 
+      message: 'The check is taking longer than expected. Please try again in a moment.',
       details: error.message 
     });
   }

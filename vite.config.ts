@@ -29,10 +29,21 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
+    minify: 'esbuild',
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        // Code splitting for better performance
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'utils': ['./src/utils/apiLogger.ts', './src/utils/useSEO.ts'],
+        },
+        // Optimize chunk file naming
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
       }
-    }
+    },
+    // Optimize chunk size warnings
+    chunkSizeWarningLimit: 1000,
   }
 })

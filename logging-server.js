@@ -97,6 +97,87 @@ app.post('/api/log', (req, res) => {
   res.status(200).send({ status: 'ok' });
 });
 
+// API endpoint to run SEO check
+app.post('/api/run-seo-check', async (req, res) => {
+  const logsDir = path.join(__dirname, 'logs');
+  const today = new Date().toISOString().split('T')[0];
+  const reportPath = path.join(logsDir, `seo-report-${today}.json`);
+  
+  try {
+    const { execSync } = await import('child_process');
+    const seoCheckPath = path.join(__dirname, 'scripts', 'seo-daily-check.cjs');
+    
+    // Run the SEO check script
+    // Note: Script exits with code 1 when checks fail, which is expected behavior
+    try {
+      execSync(`node "${seoCheckPath}"`, {
+        encoding: 'utf8',
+        cwd: __dirname,
+        timeout: 30000 // 30 second timeout
+      });
+    } catch (execError) {
+      // Script ran but exited with non-zero code (checks failed)
+      // This is normal - the report file should still be generated
+      console.log('SEO check completed with issues detected (expected behavior)');
+    }
+    
+    // Read the report file (should exist whether checks passed or failed)
+    if (fs.existsSync(reportPath)) {
+      const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+      return res.json(reportData);
+    } else {
+      return res.status(500).json({ 
+        error: 'Report file not generated',
+        details: 'SEO check ran but did not create a report file'
+      });
+    }
+  } catch (error) {
+    console.error('SEO check error:', error.message);
+    
+    // Last resort: try to read the report even if something went wrong
+    if (fs.existsSync(reportPath)) {
+      const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+      return res.json(reportData);
+    }
+    
+    res.status(500).json({ 
+      error: 'Failed to run SEO check', 
+      details: error.message 
+    });
+  }
+});
+
+// API endpoint to get SEO reports history
+app.get('/api/seo-reports', (req, res) => {
+  try {
+    const logsDir = path.join(__dirname, 'logs');
+    
+    if (!fs.existsSync(logsDir)) {
+      return res.json([]);
+    }
+    
+    // Find all seo-report-*.json files
+    const files = fs.readdirSync(logsDir)
+      .filter(file => file.startsWith('seo-report-') && file.endsWith('.json'))
+      .sort()
+      .reverse(); // Newest first
+    
+    const reports = files.slice(0, 30).map(file => {
+      const filePath = path.join(logsDir, file);
+      try {
+        return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      } catch (e) {
+        return null;
+      }
+    }).filter(report => report !== null);
+    
+    res.json(reports);
+  } catch (error) {
+    console.error('Failed to read SEO reports:', error);
+    res.status(500).json({ error: 'Failed to read SEO reports' });
+  }
+});
+
 // --- Static File Serving ---
 // Serve the built React application
 const buildPath = path.join(__dirname, 'dist');

@@ -276,6 +276,70 @@
             "@type": "Answer",
             "text": "Yes, WPS Office is safe to download and use. The software includes security features like password protection for documents, encrypted cloud storage, and regular security updates. It's trusted by millions of users worldwide and doesn't contain malware or adware."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "WPS Office中文版有什么特点？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WPS Office中文版完全支持简体中文和繁体中文界面，提供中文字体库、中文模板、中文智能纠错等本地化功能。软件完美适配中文办公环境，包括中文文档排版、中文PDF处理、中文语音输入等功能。同时支持农历日历、中国节假日提醒等本地化特性。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "WPS Office的模板库免费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WPS Office提供10000+免费模板，涵盖简历、合同、报告、海报、PPT等各类办公场景。个人版用户可以免费使用大部分模板，部分高级模板需要升级到专业版。所有模板都支持在线预览和一键应用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "WPS Office如何进行文档加密？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WPS Office支持多种文档加密方式：1) 文档密码保护 - 为Word、Excel、PPT文档设置打开密码和修改密码；2) 云文档加密 - 云端存储采用AES-256加密算法；3) PDF加密 - 支持PDF文档的密码保护和权限设置；4) 文件夹加密 - 可以对整个文件夹进行加密保护。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "WPS Office可以打开损坏的Office文档吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的，WPS Office具有强大的文档修复功能。当打开损坏的Word、Excel或PPT文档时，软件会自动尝试修复并恢复文档内容。WPS Office还提供文档备份和版本历史功能，帮助您找回误删除或损坏的文档。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "WPS Office的云同步功能如何使用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WPS Office提供免费的云存储空间（基础版1GB）。登录WPS账号后，您可以将文档保存到云端，实现多设备自动同步。支持Windows、Mac、Linux、Android、iOS等所有平台间的无缝同步。云文档支持实时协作、历史版本管理、分享链接等功能。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "WPS Office支持哪些文件格式？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WPS Office支持广泛的文件格式：文字处理支持DOC、DOCX、TXT、RTF、ODT等；表格支持XLS、XLSX、CSV、ODS等；演示支持PPT、PPTX、ODP等；PDF支持PDF阅读、编辑、转换；还支持图片格式（JPG、PNG、GIF）、压缩文件（ZIP、RAR）等的预览和处理。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何在WPS Office中使用AI功能？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WPS Office的AI功能包括：1) AI写作助手 - 智能续写、文案生成、语法纠错；2) AI排版 - 一键美化文档格式；3) AI PPT - 根据主题自动生成PPT；4) 智能表格 - 数据分析建议、公式推荐；5) PDF智能识别 - OCR文字识别、表格识别。在相应功能区找到AI图标即可使用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "WPS Office的系统要求是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows系统：Windows 7/8/10/11，2GB内存（推荐4GB），500MB磁盘空间；Mac系统：macOS 11.0及以上，支持Intel和Apple Silicon芯片；Linux系统：Ubuntu 18.04+、Debian 10+、Fedora 32+；移动设备：Android 5.0+、iOS 12.0+。所有版本都需要互联网连接进行首次激活和云同步。"
+          }
         }
       ]
     },

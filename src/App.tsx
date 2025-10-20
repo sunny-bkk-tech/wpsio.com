@@ -26,11 +26,13 @@ import BacklinkReport from './pages/BacklinkReport';
 import Templates from './pages/Templates';
 import TemplateDetail from './pages/TemplateDetail';
 import LogViewer from './pages/LogViewer';
+import SEODashboard from './pages/SEODashboard';
 import { logVisitToServer } from './utils/apiLogger';
 import './App.css';
 import './styles/blog.css';
 import './styles/templates.css';
 import './styles/logViewer.css';
+import './styles/seoDashboard.css';
 
 const AppContent = () => {
   const location = useLocation();
@@ -80,6 +82,7 @@ const AppContent = () => {
       <Route path="/serp-report" element={<SerpReport />} />
       <Route path="/backlink-report" element={<BacklinkReport />} />
       <Route path="/logs" element={<LogViewer />} />
+      <Route path="/seo-dashboard" element={<SEODashboard />} />
       
       {/* Redirect deprecated/non-existent routes to home */}
       <Route path="/wpsdocs" element={<Navigate to="/" replace />} />

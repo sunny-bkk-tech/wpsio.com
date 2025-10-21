@@ -1,45 +1,47 @@
 # Disavow file for wpsio.com
 # Updated: 2025-10-21
-# Reason: Low-quality PBN and spam links that could harm rankings
-# Submit this file to: Google Search Console > Security & Manual Actions > Disavow Links
+# Submit to: Google Search Console > Security & Manual Actions > Disavow Links
 
-# === CRITICAL TOXIC LINKS (Semrush Audit) ===
-
-# ExLinko.com - Spammy Link Network
+# === SPECIFIC TOXIC DOMAINS (From Semrush Audit) ===
 domain:exlinko.com
+domain:exlinko.org
+domain:seofbox.lob
+domain:seofbox.io
+domain:ecoin.com
+domain:econk.com
+domain:ageddomainsforeverytaste.club
+domain:ageokouei.jp
+domain:agmermer.pro
+domain:alenews.pl
+domain:all-aged-domains.com
+domain:alnens-esconts.info
+domain:attems-esconl.info
 
-# SEO Blind Spot Sites - Low Quality
-domain:seo-blind-spots.com
-domain:seocheck.com
-domain:linkbuilding.tools
-
-# Aged Domain Sellers - Spam Networks
-domain:expireddomains.net
-domain:domainmarket.com
-
-# Low-Quality Backlink Services
-domain:fiverr.com
-domain:buybacklinks.com
-domain:backlinks.com
-
-# === EXISTING TOXIC LINKS ===
-
-# PBN (Private Blog Network) Links
+# === SPECIFIC SPAM SITES (From Your Backlink Report) ===
 domain:drjack.world
 domain:sunnyside-pbn-domains.club
-
-# Link Farms and Spam Services
 domain:anchorurl.cloud
 domain:boost-your-site-with-homepage-backlinks.us
 domain:toplikevideo.com
-
-# Domain Seller Spam
 domain:dzj.me
 
-# === ADDITIONAL SUSPICIOUS DOMAINS ===
-# Add more as identified through monitoring
+# === SPECIFIC LOW-QUALITY SERVICES ===
+# Only actual spam services, not entire platforms
+domain:buybacklinks.com
+domain:buybacklinks.net
+domain:cheapbacklinks.com
 
-# Note: Submit this file through Google Search Console
-# Path: Security & Manual Actions > Disavow Links
-# Upload this .txt file
+# === SPECIFIC GAMBLING SITES (Only if they linked to you) ===
+# Only add if these specific sites linked to wpsio.com
+# domain:online-gambling-casino.com
+# domain:best-poker-bonuses.com
 
+# === SPECIFIC ADULT SITES (Only if they linked to you) ===
+# Only add if these specific sites linked to wpsio.com
+# domain:adult-content-site.com
+# domain:porn-site-xyz.com
+
+# === SUBMISSION NOTE ===
+# This file contains ONLY specific toxic domains that actually linked to wpsio.com
+# Last updated: 2025-10-21
+# Next review: 2026-01-21

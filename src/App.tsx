@@ -35,6 +35,8 @@ const Templates = lazy(() => import('./pages/Templates'));
 const TemplateDetail = lazy(() => import('./pages/TemplateDetail'));
 const LogViewer = lazy(() => import('./pages/LogViewer'));
 const SEODashboard = lazy(() => import('./pages/SEODashboard'));
+const WpsOfficeDownload = lazy(() => import('./pages/WpsOfficeDownload'));
+const WpsVsMicrosoft = lazy(() => import('./pages/WpsVsMicrosoft'));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -66,6 +68,10 @@ const AppContent = () => {
         <Route path="/support" element={<Support />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/education" element={<Education />} />
+
+        {/* SEO Landing Pages */}
+        <Route path="/wps-office-download" element={<WpsOfficeDownload />} />
+        <Route path="/wps-vs-microsoft-office" element={<WpsVsMicrosoft />} />
 
         {/* Office Apps */}
         <Route path="/writer" element={<Writer />} />

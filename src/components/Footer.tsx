@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
                 </svg>
               </a>
               <a 
-                href="https://www.linkedin.com/company/wps-office" 
+                href="https://www.linkedin.com/in/marketing-hub-cn/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
                 </svg>
               </a>
               <a 
-                href="https://www.instagram.com/wpsoffice" 
+                href="https://www.instagram.com/marketinghub2525" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -124,7 +124,7 @@ const Footer: React.FC = () => {
                 </svg>
               </a>
               <a 
-                href="https://www.facebook.com/wpsoffice" 
+                href="https://facebook.com/wps.china" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Facebook"

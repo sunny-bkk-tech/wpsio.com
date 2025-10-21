@@ -198,10 +198,6 @@ const BlogPost: React.FC = () => {
                      target="_blank" rel="noopener noreferrer" aria-label="分享到 LinkedIn">
                     LinkedIn
                   </a>
-                  <a href={`https://service.weibo.com/share/share.php?url=https://www.wpsio.com/blog/${effectivePost.id}&title=${encodeURIComponent(effectivePost.title)}`} 
-                     target="_blank" rel="noopener noreferrer" aria-label="分享到微博">
-                    微博
-                  </a>
                 </div>
               </div>
               

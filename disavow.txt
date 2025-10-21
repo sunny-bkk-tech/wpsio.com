@@ -1,6 +1,28 @@
 # Disavow file for wpsio.com
-# Updated: 2025-10-09
+# Updated: 2025-10-21
 # Reason: Low-quality PBN and spam links that could harm rankings
+# Submit this file to: Google Search Console > Security & Manual Actions > Disavow Links
+
+# === CRITICAL TOXIC LINKS (Semrush Audit) ===
+
+# ExLinko.com - Spammy Link Network
+domain:exlinko.com
+
+# SEO Blind Spot Sites - Low Quality
+domain:seo-blind-spots.com
+domain:seocheck.com
+domain:linkbuilding.tools
+
+# Aged Domain Sellers - Spam Networks
+domain:expireddomains.net
+domain:domainmarket.com
+
+# Low-Quality Backlink Services
+domain:fiverr.com
+domain:buybacklinks.com
+domain:backlinks.com
+
+# === EXISTING TOXIC LINKS ===
 
 # PBN (Private Blog Network) Links
 domain:drjack.world
@@ -13,4 +35,11 @@ domain:toplikevideo.com
 
 # Domain Seller Spam
 domain:dzj.me
+
+# === ADDITIONAL SUSPICIOUS DOMAINS ===
+# Add more as identified through monitoring
+
+# Note: Submit this file through Google Search Console
+# Path: Security & Manual Actions > Disavow Links
+# Upload this .txt file
 

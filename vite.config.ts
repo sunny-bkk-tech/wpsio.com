@@ -30,20 +30,46 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     minify: 'esbuild',
+    target: 'esnext',
+    cssCodeSplit: true,
     rollupOptions: {
       output: {
-        // Code splitting for better performance
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'utils': ['./src/utils/apiLogger.ts', './src/utils/useSEO.ts'],
+        // Aggressive code splitting for better INP performance
+        manualChunks: (id) => {
+          // Split vendor chunks by package
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+              return 'react-vendor';
+            }
+            if (id.includes('scheduler')) {
+              return 'react-vendor';
+            }
+            // Other node_modules go into separate vendor chunk
+            return 'vendor';
+          }
+          // Split by route/page
+          if (id.includes('src/pages/')) {
+            const pageName = id.split('src/pages/')[1].split('.')[0];
+            return `page-${pageName.toLowerCase()}`;
+          }
+          // Split utilities
+          if (id.includes('src/utils/')) {
+            return 'utils';
+          }
+          // Split components
+          if (id.includes('src/components/')) {
+            return 'components';
+          }
         },
-        // Optimize chunk file naming
+        // Optimize chunk file naming for better caching
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
       }
     },
     // Optimize chunk size warnings
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 500,
+    // Minify options for better compression
+    cssMinify: true,
   }
 })

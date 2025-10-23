@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const Home: React.FC = () => {
   useSEO({
     title: 'WPS Office中文官方网站 - 免费办公软件下载 | WPS文字、表格、演示',
-    description: '免费下载WPS Office中文版！完美兼容Microsoft Office，支持Word、Excel、PPT文档编辑。适用于Windows、Mac、Linux、Android和iOS。AI智能助手，提升办公效率，轻松完成各类办公任务。',
+    description: '免费下载WPS Office中文版！完美兼容Microsoft Office，支持Word、Excel、PPT文档编辑。适用于Windows、Mac、Linux、Android和iOS全平台。内置AI智能助手，10000+免费模板，云文档同步，提升办公效率。轻量快速仅210MB，是最佳的免费Office替代品！',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     locale: 'zh_CN',

@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const Writer: React.FC = () => {
   useSEO({
     title: 'WPS文字 - 免费Word文档编辑器 | 兼容DOC/DOCX格式',
-    description: 'WPS文字是强大的文档编辑工具，完美兼容Microsoft Word格式（DOC/DOCX）。提供AI智能写作、模板库、多人协作等功能。支持PDF转Word、文档加密、云端存储，让文字处理更高效！',
+    description: 'WPS文字是专业的文档编辑工具，完美兼容Microsoft Word格式（DOC/DOCX/RTF）。提供AI智能写作助手、1000+精美模板、实时多人协作、语音输入、OCR文字识别等强大功能。支持PDF转Word、文档加密保护、云端自动存储、批注修订、邮件合并等高级特性。免费下载使用，让文字处理更高效、更专业！',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     canonical: 'https://www.wpsio.com/writer',

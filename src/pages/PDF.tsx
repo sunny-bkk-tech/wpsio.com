@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const PDF: React.FC = () => {
   useSEO({
     title: 'WPS PDF - 免费PDF编辑器 | PDF转Word/Excel/PPT工具',
-    description: 'WPS PDF是专业的PDF处理工具，支持PDF编辑、转换、合并、拆分、压缩等功能。轻松实现PDF转Word、Excel、PPT，添加水印、注释、签名。免费、安全、高效的PDF解决方案！',
+    description: 'WPS PDF是全能PDF处理工具，支持PDF阅读、编辑、转换、合并、拆分、压缩、加密等20+功能。轻松实现PDF转Word/Excel/PPT/图片格式互转，支持添加水印、批注、电子签名、表单填写、OCR文字识别。采用银行级加密技术，保护文档安全。免费使用，是Adobe Acrobat的最佳替代方案！',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     canonical: 'https://www.wpsio.com/pdf',

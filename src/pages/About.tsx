@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const About: React.FC = () => {
   useSEO({
     title: '关于WPS Office - 公司简介/发展历程/企业使命',
-    description: '了解WPS Office的品牌故事与发展历程。30年专注办公软件研发，服务全球5亿+用户。致力于为个人、企业提供高效、便捷、智能的办公解决方案，让办公更简单！',
+    description: '了解WPS Office品牌故事与发展历程。金山办公成立于1988年，35年专注办公软件研发，服务全球5亿+用户，业务覆盖100+国家和地区。致力于为个人和企业提供高效、便捷、智能的办公解决方案，从WPS 1.0到AI智能办公时代，持续创新让办公更简单！专业团队打造精品软件，值得信赖的办公品牌！',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     canonical: 'https://www.wpsio.com/about',

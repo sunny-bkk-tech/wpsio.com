@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const WpsVsMicrosoft: React.FC = () => {
   useSEO({
     title: 'WPS Office vs Microsoft Office对比 - 哪个更好？完整功能对比2025',
-    description: 'WPS Office和Microsoft Office详细对比分析。价格对比（免费vs$149/年）、功能对比、性能对比、兼容性对比。帮您选择最适合的办公软件。',
+    description: 'WPS Office和Microsoft Office 2025全面深度对比分析。详细对比价格成本（免费 vs ¥749/年）、核心办公功能、运行性能速度、文档格式兼容性、云存储服务、AI智能辅助功能等多个关键维度。提供详细对比数据表格和实测结果报告，帮您选择最适合自己需求的办公软件解决方案！',
     robots: 'index,follow',
     canonical: 'https://www.wpsio.com/wps-vs-microsoft-office',
     jsonLd: [

@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const Linux: React.FC = () => {
   useSEO({
     title: 'WPS Office Linux版下载 - Ubuntu/Debian/Fedora | 开源办公软件',
-    description: '下载WPS Office Linux版，支持Ubuntu、Debian、Fedora、Arch等主流发行版。免费开源办公套件，完美兼容Microsoft Office。提供DEB、RPM安装包，让Linux用户也能享受专业办公体验！',
+    description: '下载WPS Office Linux版，支持Ubuntu 18.04+、Debian、Fedora、Arch等主流发行版。免费办公套件，完美兼容Microsoft Office格式。提供DEB、RPM、AppImage安装包。支持x86_64和ARM架构，让Linux用户享受专业办公体验！',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     canonical: 'https://www.wpsio.com/linux',

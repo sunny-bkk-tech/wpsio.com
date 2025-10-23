@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const IOS: React.FC = () => {
   useSEO({
     title: 'WPS Office iOS版下载 - iPhone/iPad办公APP | App Store官方',
-    description: '下载WPS Office iOS版，iPhone和iPad上的专业办公软件。完美支持iOS 17/16系统，流畅编辑Word、Excel、PPT文档。提供云同步、Apple Pencil支持、文档扫描等功能。App Store 4.8星好评！',
+    description: '下载WPS Office iOS版，iPhone和iPad专业办公软件。支持iOS 17/16/15系统，流畅编辑Word/Excel/PPT/PDF文档。提供iCloud云同步、Apple Pencil支持、Face ID安全保护、文档扫描等功能。App Store 4.8星好评！',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     canonical: 'https://www.wpsio.com/ios',

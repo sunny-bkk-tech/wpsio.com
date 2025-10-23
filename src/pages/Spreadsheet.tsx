@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const Spreadsheet: React.FC = () => {
   useSEO({
     title: 'WPS表格 - 免费Excel电子表格编辑器 | 兼容XLS/XLSX',
-    description: 'WPS表格是专业的电子表格工具，完美兼容Microsoft Excel（XLS/XLSX）。提供丰富函数公式、数据透视表、图表分析、宏编程等功能。支持多人协作、云端同步，让数据处理更简单高效！',
+    description: 'WPS表格是专业的电子表格分析工具，完美兼容Microsoft Excel（XLS/XLSX/CSV）。内置500+常用函数公式、数据透视表、高级图表、条件格式、宏编程VBA等强大功能。支持百万行数据处理、实时多人协作编辑、智能填充、数据验证、筛选排序。提供财务、统计、工程等专业模板，让数据分析更简单高效！',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     canonical: 'https://www.wpsio.com/spreadsheet',

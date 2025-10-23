@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const Android: React.FC = () => {
   useSEO({
     title: 'WPS Office Android版下载 - 手机办公APP | Google Play官方',
-    description: '下载WPS Office Android版，随时随地移动办公。支持查看、编辑Word、Excel、PPT文档，兼容各品牌Android手机。提供云同步、PDF阅读、文档扫描等功能。Google Play 4.7星好评，立即下载！',
+    description: '下载WPS Office Android版，随时随地移动办公！支持Android 5.0+系统，查看编辑Word/Excel/PPT/PDF文档。兼容小米、华为、三星、OPPO、vivo等各品牌手机和平板。提供云同步、文档扫描、语音输入、手写批注、远程打印等20+功能。Google Play 4.7星好评，5亿+下载量，立即下载！',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     canonical: 'https://www.wpsio.com/android',

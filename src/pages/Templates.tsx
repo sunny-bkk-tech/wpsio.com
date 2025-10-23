@@ -138,7 +138,7 @@ const Templates: React.FC = () => {
 
   useSEO({
     title: '免费办公模板下载 - WPS Office 模板库 | 简历、商务、演示模板',
-    description: '下载免费的专业办公模板，包括简历模板、商务信函、演示文稿、Excel表格等。WPS Office 提供高质量、可编辑的办公模板，提升您的工作效率。',
+    description: '下载10000+免费专业办公模板，涵盖简历求职、商务信函、合同协议、工作报告、财务报表、演示文稿PPT、Excel表格、项目计划、营销策划等全场景。WPS Office 提供高质量、可直接编辑的精美模板，支持在线预览、一键下载、智能套用。定期更新行业模板，提升您的工作效率和专业形象！',
     canonical: 'https://www.wpsio.com/templates',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',

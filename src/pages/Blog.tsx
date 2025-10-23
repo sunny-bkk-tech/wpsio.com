@@ -25,7 +25,7 @@ const Blog: React.FC = () => {
 
   useSEO({
     title: 'WPS Office 博客 - 办公软件技巧与教程 | 提升办公效率',
-    description: '探索 WPS Office 最新功能、使用技巧、办公效率提升方法。获取专业的文档编辑、表格制作、演示文稿设计指南。每日更新，助您成为办公高手。',
+    description: '探索 WPS Office 最新功能、实用技巧、办公效率提升方法和行业最佳实践。获取专业的Word文档编辑、Excel表格数据分析、PPT演示文稿设计、PDF处理等详细教程指南。涵盖快捷键大全、函数公式、自动化脚本、协作技巧。每日更新原创内容，提供视频教程和案例分析，助您成为办公高手！',
     canonical: 'https://www.wpsio.com/blog',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',

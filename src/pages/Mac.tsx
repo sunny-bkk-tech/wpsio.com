@@ -5,7 +5,7 @@ import { useSEO } from '../utils/useSEO';
 const Mac: React.FC = () => {
   useSEO({
     title: 'WPS Office Mac版下载 - 适配macOS Sonoma/Ventura | 免费办公软件',
-    description: '下载WPS Office Mac版，完美适配macOS Sonoma、Ventura、Monterey系统。免费办公套件，支持M1/M2芯片。流畅编辑Word、Excel、PPT，原生Mac体验，是Microsoft Office for Mac的最佳替代！',
+    description: '下载WPS Office Mac版，完美适配macOS Sonoma/Ventura/Monterey系统。原生支持Apple M1/M2/M3芯片和Intel处理器。流畅编辑Word/Excel/PPT文档，支持暗黑模式和Retina显示。是Microsoft Office for Mac最佳免费替代！',
     robots: 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     canonical: 'https://www.wpsio.com/mac',

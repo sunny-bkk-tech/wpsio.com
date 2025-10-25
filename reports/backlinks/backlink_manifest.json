@@ -516,6 +516,17 @@
       "notes": "Pitch guest post: Title: Malay Mail | Breaking News, Malaysia, World, Lifestyle News, Contact form: Yes",
       "dateAdded": "2025-10-14",
       "status": "active"
+    },
+    {
+      "id": "1761410748762",
+      "url": "https://yellowpages.com.ph",
+      "domain": "yellowpages.com.ph",
+      "anchor": "",
+      "type": "directory",
+      "quality": "high",
+      "notes": "Submit business listing: Title: Loading..., Contact form: No",
+      "dateAdded": "2025-10-25",
+      "status": "active"
     }
   ],
   "dailyStats": {
@@ -566,6 +577,15 @@
       "total": 1,
       "byType": {
         "publication": 1
+      },
+      "byQuality": {
+        "high": 1
+      }
+    },
+    "2025-10-25": {
+      "total": 1,
+      "byType": {
+        "directory": 1
       },
       "byQuality": {
         "high": 1

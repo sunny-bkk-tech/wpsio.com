@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2025-10-14T08:09:37.767Z",
+  "generatedAt": "2025-10-25T16:47:06.759Z",
   "summary": {
-    "total": 36,
+    "total": 37,
     "byCountry": {
       "thailand": 5,
       "singapore": 7,
       "malaysia": 6,
       "vietnam": 7,
-      "philippines": 3,
+      "philippines": 4,
       "publication": 6,
       "indonesia": 1,
       "laos": 1
     },
     "byType": {
       "platform": 1,
-      "directory": 11,
+      "directory": 12,
       "publication": 23,
       "tech_blog": 1
     },
     "byQuality": {
-      "high": 35,
+      "high": 36,
       "medium": 1
     },
     "bySource": {
-      "country_domain": 30,
+      "country_domain": 31,
       "news_publication": 6
     }
   },
@@ -495,6 +495,19 @@
       "status": "active",
       "seaCountry": "laos",
       "seaType": "country_domain"
+    },
+    {
+      "id": "1761410748762",
+      "url": "https://yellowpages.com.ph",
+      "domain": "yellowpages.com.ph",
+      "anchor": "",
+      "type": "directory",
+      "quality": "high",
+      "notes": "Submit business listing: Title: Loading..., Contact form: No",
+      "dateAdded": "2025-10-25",
+      "status": "active",
+      "seaCountry": "philippines",
+      "seaType": "country_domain"
     }
   ],
   "recommendations": [
@@ -506,7 +519,7 @@
     {
       "type": "country_focus",
       "country": "philippines",
-      "message": "Increase backlinks from philippines. Current: 3, Target: 5+"
+      "message": "Increase backlinks from philippines. Current: 4, Target: 5+"
     },
     {
       "type": "directory_focus",

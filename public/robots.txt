@@ -6,6 +6,10 @@ Allow: /
 Disallow: /wpsdocs
 Disallow: /wpsdocs/
 
+# Sitemaps
 Sitemap: https://www.wpsio.com/sitemap.xml
+
+# IndexNow protocol for faster indexing
+# Key file: https://www.wpsio.com/indexnow-key.txt
 
 

@@ -106,6 +106,16 @@ const AppContent = () => {
         <Route path="/logs" element={<LogViewer />} />
         <Route path="/seo-dashboard" element={<SEODashboard />} />
         
+        {/* Legacy path redirects (to reduce 404s and consolidate signals) */}
+        <Route path="/about-us" element={<Navigate to="/about" replace />} />
+        <Route path="/partnership-customer-stories" element={<Navigate to="/partners" replace />} />
+        <Route path="/partners-oem" element={<Navigate to="/partners" replace />} />
+        <Route path="/strategic-partner" element={<Navigate to="/partners" replace />} />
+        <Route path="/cookie-declaration" element={<Navigate to="/privacy-policy" replace />} />
+        <Route path="/office/writer" element={<Navigate to="/writer" replace />} />
+        <Route path="/academy" element={<Navigate to="/education" replace />} />
+        <Route path="/whatsnew/pc" element={<Navigate to="/blog" replace />} />
+
         {/* Redirect deprecated/non-existent routes to home */}
         <Route path="/wpsdocs" element={<Navigate to="/" replace />} />
         <Route path="/wpsdocs/*" element={<Navigate to="/" replace />} />

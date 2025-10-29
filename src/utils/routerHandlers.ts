@@ -244,6 +244,13 @@ function mapExternalWpsLink(externalPath) {
     '/tech-specs/': '/tech-specs',
     '/strategic-partner/': '/partners',  // strategic-partner -> partners
     '/partners/': '/partners',
+    '/partners-oem/': '/partners',
+    '/partnership-customer-stories/': '/partners',
+    '/academy/': '/education',
+    '/whatsnew/pc/': '/blog',
+    '/about-us/': '/about',
+    '/cookie-declaration/': '/privacy-policy',
+    '/office/writer/': '/writer',
     
     // Additional mappings for common variations
     '/about/': '/about',

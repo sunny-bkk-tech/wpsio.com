@@ -46,7 +46,8 @@ const BlogPost: React.FC = () => {
     if (!post && id) {
       // Legacy slug mappings (add more if needed)
       const legacyMap: Record<string, string> = {
-        'excel-formulas-beginners-guide': 'excel-gao-ji-ji-qiao-da-quan'
+        'excel-formulas-beginners-guide': 'excel-gao-ji-ji-qiao-da-quan',
+        'excel': 'excel-gao-ji-ji-qiao-da-quan'
       };
       const mapped = legacyMap[id];
       if (mapped) {

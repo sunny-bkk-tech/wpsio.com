@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
+import { useSEO } from '../utils/useSEO';
 
 // Define the shape of a single log entry
 interface LogEntry {
@@ -16,6 +17,12 @@ interface LogEntry {
 }
 
 const LogViewer: React.FC = () => {
+  useSEO({
+    title: 'Visitor Logs - Internal Tool',
+    description: 'Internal visitor logs viewer',
+    robots: 'noindex, nofollow',
+  });
+
   const [logs, setLogs] = useState<LogEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

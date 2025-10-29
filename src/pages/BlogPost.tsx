@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useSEO } from '../utils/useSEO';
 import Layout from '../components/Layout';
 import { getAllBlogPosts } from '../utils/blogData';
@@ -7,6 +7,7 @@ import type { BlogPostData } from '../types/blog';
 
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [blogPosts, setBlogPosts] = useState<Record<string, BlogPostData>>({});
   const [loading, setLoading] = useState(true);
 
@@ -38,15 +39,31 @@ const BlogPost: React.FC = () => {
     tags: []
   };
 
+  const isNotFound = effectivePost.id === 'not-found';
+
+  // If the requested slug is legacy and we have a close match, redirect users to the correct post
+  useEffect(() => {
+    if (!post && id) {
+      // Legacy slug mappings (add more if needed)
+      const legacyMap: Record<string, string> = {
+        'excel-formulas-beginners-guide': 'excel-gao-ji-ji-qiao-da-quan'
+      };
+      const mapped = legacyMap[id];
+      if (mapped) {
+        navigate(`/blog/${mapped}`, { replace: true });
+      }
+    }
+  }, [post, id, navigate]);
+
   useSEO({
     title: `${effectivePost.title} - WPS Office 博客`,
     description: effectivePost.excerpt,
-    canonical: `https://www.wpsio.com/blog/${effectivePost.id}`,
-    robots: 'index,follow',
+    canonical: isNotFound ? 'https://www.wpsio.com/blog' : `https://www.wpsio.com/blog/${effectivePost.id}`,
+    robots: isNotFound ? 'noindex, nofollow' : 'index,follow',
     image: 'https://www.wpsio.com/vite.svg',
     ogType: 'article',
     locale: 'zh_CN',
-    jsonLd: effectivePost.id !== 'not-found' ? [
+    jsonLd: !isNotFound ? [
       {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
